@@ -11,7 +11,7 @@ const WalletConnectForm = ({ onClose }) => {
 
   const handleConnect = async () => {
     try {
-      const response = await fetch("http://localhost:3001/api/auth", {
+      const response = await fetch("https://crtpro-miner.onrender.com/api/auth", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
