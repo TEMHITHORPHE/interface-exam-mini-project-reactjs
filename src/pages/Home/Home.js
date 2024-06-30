@@ -85,27 +85,27 @@ export default function Home({ showRedirectModal, redirectPopupTimestamp }) {
   const faqContent = [
     {
       id: 1,
-      question: "What is Crypto Miner?",
+      question: "What is W.A.X?",
       answer:
-        "Crypto Miner is a decentralized spot and perpetual exchange that supports low swap fees and zero price impact trades.<br><br>Trading is supported by a unique multi-asset pool that earns liquidity providers fees from market making, swap fees, leverage trading (spreads, funding fees & liquidations), and asset rebalancing.<br><br>Dynamic pricing is supported by Chainlink Oracles along with TWAP pricing from leading volume DEXs.",
+        "W.A.X is a decentralized spot and perpetual exchange that supports low swap fees and zero price impact trades.<br><br>Trading is supported by a unique multi-asset pool that earns liquidity providers fees from market making, swap fees, leverage trading (spreads, funding fees & liquidations), and asset rebalancing.<br><br>Dynamic pricing is supported by Chainlink Oracles along with TWAP pricing from leading volume DEXs.",
     },
     {
       id: 2,
-      question: "What is the Crypto Miner Governance Token? ",
+      question: "What is the W.A.X Governance Token? ",
       answer:
-        "The Crypto Miner token is the governance token of the Crypto Miner ecosystem, it provides the token owner voting rights on the direction of the Crypto Miner platform.<br><br>Additionally, when Crypto Miner is staked you will earn 30% of the platform-generated fees, you will also earn Escrowed Crypto Miner tokens and Multiplier Points.",
+        "The W.A.X token is the governance token of the W.A.X ecosystem, it provides the token owner voting rights on the direction of the W.A.X platform.<br><br>Additionally, when W.A.X is staked you will earn 30% of the platform-generated fees, you will also earn Escrowed W.A.X tokens and Multiplier Points.",
     },
     {
       id: 3,
       question: "What is the GLP Token? ",
       answer:
-        "The GLP token represents the liquidity users provide to the Crypto Miner platform for Swaps and Margin Trading.<br><br>To provide liquidity to GLP you <a href='https://Crypto Miner.io/buy_glp' target='_blank'>trade</a> your crypto asset BTC, ETH, LINK, UNI, USDC, USDT, MIM, or FRAX to the liquidity pool, in exchange, you gain exposure to a diversified index of tokens while earning 50% of the platform trading fees and esXVI.",
+        "The GLP token represents the liquidity users provide to the W.A.X platform for Swaps and Margin Trading.<br><br>To provide liquidity to GLP you <a href='https://WAX.io/buy_glp' target='_blank'>trade</a> your crypto asset BTC, ETH, LINK, UNI, USDC, USDT, MIM, or FRAX to the liquidity pool, in exchange, you gain exposure to a diversified index of tokens while earning 50% of the platform trading fees and esXVI.",
     },
     {
       id: 4,
-      question: "What can I trade on Crypto Miner? ",
+      question: "What can I trade on W.A.X? ",
       answer:
-        "On Crypto Miner you can swap or margin trade any of the following assets: ETH, BTC, LINK, UNI, USDC, USDT, MIM, FRAX, with others to be added. ",
+        "On W.A.X you can swap or margin trade any of the following assets: ETH, BTC, LINK, UNI, USDC, USDT, MIM, FRAX, with others to be added. ",
     },
   ];
 
@@ -241,7 +241,7 @@ export default function Home({ showRedirectModal, redirectPopupTimestamp }) {
       <div className="Home-benefits-section">
         <div className="Home-benefits-control">
           <span className="Home-benfits-control-title">
-            <Trans>Crypto Miner FEATURES</Trans>
+            <Trans>W.A.X FEATURES</Trans>
           </span>
           <div className="Home-benfits-description">
             <Trans>We are not just a Decentralize we are most like</Trans>
@@ -334,7 +334,7 @@ export default function Home({ showRedirectModal, redirectPopupTimestamp }) {
               <Trans>Available on your preferred network</Trans>
             </div>
             <div className="Home-cta-info__description">
-              <Trans>Crypto Miner is currently live on Velas and BSC.</Trans>
+              <Trans>W.A.X is currently live on Velas and BSC.</Trans>
             </div>
           </div>
           <div className="Home-cta-options">

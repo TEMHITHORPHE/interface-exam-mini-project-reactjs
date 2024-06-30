@@ -54,7 +54,7 @@ export default function TokenCard({ showRedirectModal }) {
       <div className="Home-token-card-option">
         <div className="Home-token-card-option-icon">
           <div className="Home-token-card-option-icon-left">
-            <img src={XVIIcon} alt="gmxBigIcon" width="40" /> <Trans>Crypto Miner</Trans>
+            <img src={XVIIcon} alt="gmxBigIcon" width="40" /> <Trans>W.A.X</Trans>
           </div>
           <div className="Home-token-card-option-icon-right">
             <Trans>BSC ARP:</Trans>
@@ -66,7 +66,7 @@ export default function TokenCard({ showRedirectModal }) {
         <div className="Home-token-card-option-info">
           <div className="Home-token-card-option-title">
             <Trans>
-              Crypto Miner is the utility and governance token. Accrues 30% of the platform's generated fees.
+              W.A.X is the utility and governance token. Accrues 30% of the platform's generated fees.
             </Trans>
           </div>
           <div className="Home-token-card-option-action">

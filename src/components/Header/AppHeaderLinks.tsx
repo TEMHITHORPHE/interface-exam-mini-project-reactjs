@@ -57,7 +57,7 @@ export function AppHeaderLinks({
             redirectPopupTimestamp={redirectPopupTimestamp}
             showRedirectModal={showRedirectModal}
           >
-            <img src={logoImg} alt="Crypto Miner Logo" />
+            <img src={logoImg} alt="W.A.X Logo" />
           </HeaderLink>
           <div
             className="App-header-menu-icon-block mobile-cross-menu"

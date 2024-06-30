@@ -32,7 +32,7 @@
   },
   "modes": {
     "window": {
-      "title": "Crypto Miner",
+      "title": "W.A.X",
       "width": 800,
       "height": 500,
       "minWidth": 400,
@@ -73,7 +73,7 @@
     }
   },
   "cli": {
-    "binaryName": "Crypto Miner",
+    "binaryName": "W.A.X",
     "resourcesPath": "/build/",
     "extensionsPath": "/extensions/",
     "clientLibrary": "/build/js/neutralino.js",

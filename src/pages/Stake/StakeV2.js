@@ -649,10 +649,10 @@ function CompoundModal(props) {
 
   const getPrimaryText = () => {
     if (isApproving) {
-      return t`Approving Crypto Miner...`;
+      return t`Approving W.A.X...`;
     }
     if (needApproval) {
-      return t`Approve Crypto Miner`;
+      return t`Approve W.A.X`;
     }
     if (isCompounding) {
       return t`Compounding...`;
@@ -739,12 +739,12 @@ function CompoundModal(props) {
           </div>
           <div>
             <Checkbox isChecked={shouldClaimGmx} setIsChecked={setShouldClaimGmx} disabled={shouldStakeGmx}>
-              <Trans>Claim Crypto Miner Rewards</Trans>
+              <Trans>Claim W.A.X Rewards</Trans>
             </Checkbox>
           </div>
           <div>
             <Checkbox isChecked={shouldStakeGmx} setIsChecked={toggleShouldStakeGmx}>
-              <Trans>Stake Crypto Miner Rewards</Trans>
+              <Trans>Stake W.A.X Rewards</Trans>
             </Checkbox>
           </div>
           <div>
@@ -1220,7 +1220,7 @@ export default function StakeV2({ setPendingTxns, connectWallet }) {
     }
 
     setIsVesterWithdrawModalVisible(true);
-    setVesterWithdrawTitle(t`Withdraw from Crypto Miner Vault`);
+    setVesterWithdrawTitle(t`Withdraw from W.A.X Vault`);
     setVesterWithdrawAddress(gmxVesterAddress);
   };
 
@@ -1237,11 +1237,11 @@ export default function StakeV2({ setPendingTxns, connectWallet }) {
 
   const showUnstakeGmxModal = () => {
     if (!isGmxTransferEnabled) {
-      helperToast.error(t`Crypto Miner transfers not yet enabled`);
+      helperToast.error(t`W.A.X transfers not yet enabled`);
       return;
     }
     setIsUnstakeModalVisible(true);
-    setUnstakeModalTitle(t`Unstake Crypto Miner`);
+    setUnstakeModalTitle(t`Unstake W.A.X`);
     let maxAmount = processedData.gmxInStakedGmx;
     if (
       processedData.gmxInStakedGmx &&
@@ -1307,7 +1307,7 @@ export default function StakeV2({ setPendingTxns, connectWallet }) {
   if (totalRewardTokensAndGlp && totalRewardTokensAndGlp.gt(0)) {
     let gmxAmountStr;
     if (processedData.gmxInStakedGmx && processedData.gmxInStakedGmx.gt(0)) {
-      gmxAmountStr = formatAmount(processedData.gmxInStakedGmx, 18, 2, true) + " Crypto Miner";
+      gmxAmountStr = formatAmount(processedData.gmxInStakedGmx, 18, 2, true) + " W.A.X";
     }
     let esGmxAmountStr;
     if (processedData.esGmxInStakedGmx && processedData.esGmxInStakedGmx.gt(0)) {
@@ -1440,7 +1440,7 @@ export default function StakeV2({ setPendingTxns, connectWallet }) {
               <Trans>
                 Stake{" "}
                 <a href="about:blank" target="_blank" rel="noopener noreferrer">
-                  Crypto Miner
+                  W.A.X
                 </a>{" "}
                 and{" "}
                 <a href="about:blank" target="_blank" rel="noopener noreferrer">
@@ -1457,7 +1457,7 @@ export default function StakeV2({ setPendingTxns, connectWallet }) {
             <div className="App-card StakeV2-gmx-card">
               <div className="App-card-title">
                 <span className="App-card-title-content">
-                  <Trans>Crypto Miner Pro</Trans>
+                  <Trans>W.A.X Pro</Trans>
                 </span>
               </div>
               <div className="App-card-content">
@@ -1484,7 +1484,7 @@ export default function StakeV2({ setPendingTxns, connectWallet }) {
                     <Trans>Wallet</Trans>
                   </div>
                   <div className="App-card-value">
-                    {formatKeyAmount(processedData, "gmxBalance", 18, 2, true)} Crypto Miner ($
+                    {formatKeyAmount(processedData, "gmxBalance", 18, 2, true)} W.A.X ($
                     {formatKeyAmount(processedData, "gmxBalanceUsd", USD_DECIMALS, 2, true)})
                   </div>
                 </div>
@@ -1493,7 +1493,7 @@ export default function StakeV2({ setPendingTxns, connectWallet }) {
                     <Trans>Staked</Trans>
                   </div>
                   <div className="App-card-value">
-                    {formatKeyAmount(processedData, "gmxInStakedGmx", 18, 2, true)} Crypto Miner ($
+                    {formatKeyAmount(processedData, "gmxInStakedGmx", 18, 2, true)} W.A.X ($
                     {formatKeyAmount(processedData, "gmxInStakedGmxUsd", USD_DECIMALS, 2, true)})
                   </div>
                 </div>
@@ -1508,7 +1508,7 @@ export default function StakeV2({ setPendingTxns, connectWallet }) {
                         return (
                           <>
                             <div className="Tooltip-row">
-                              <span className="label">Escrowed Crypto Miner APR</span>
+                              <span className="label">Escrowed W.A.X APR</span>
                               <span>{formatKeyAmount(processedData, "gmxAprForEsGmx", 2, 2, true)}%</span>
                             </div>
                             {(!processedData.gmxBoostAprForNativeToken ||
@@ -1577,7 +1577,7 @@ export default function StakeV2({ setPendingTxns, connectWallet }) {
                               </span>
                             </div>
                             <div className="Tooltip-row">
-                              <span className="label">Escrowed Crypto Miner</span>
+                              <span className="label">Escrowed W.A.X</span>
                               <span>
                                 {formatKeyAmount(processedData, "stakedLeverageTrackerRewards", 18, 4)} ($
                                 {formatKeyAmount(
@@ -1636,10 +1636,10 @@ export default function StakeV2({ setPendingTxns, connectWallet }) {
                         className="nowrap"
                         handle={
                           formatAmount(totalGmxStaked, 18, 0, true) +
-                          " Crypto Miner" +
+                          " W.A.X" +
                           ` ($${formatAmount(stakedGmxSupplyUsd, USD_DECIMALS, 0, true)})`
                         }
-                        renderContent={() => <>Binance: {formatAmount(bscGmxStaked, 18, 0, true)} Crypto Miner</>}
+                        renderContent={() => <>Binance: {formatAmount(bscGmxStaked, 18, 0, true)} W.A.X</>}
                       />
                     )}
                   </div>
@@ -1652,7 +1652,7 @@ export default function StakeV2({ setPendingTxns, connectWallet }) {
                     {!totalGmxSupply && "0"}
                     {totalGmxSupply && (
                       <div>
-                        {formatAmount(totalGmxSupply, 18, 0, true)} Crypto Miner ($
+                        {formatAmount(totalGmxSupply, 18, 0, true)} W.A.X ($
                         {formatAmount(totalSupplyUsd, USD_DECIMALS, 0, true)})
                       </div>
                     )}
@@ -1695,14 +1695,14 @@ export default function StakeV2({ setPendingTxns, connectWallet }) {
                   </div>
                 </div>
                 <div className="App-card-row">
-                  <div className="label">Crypto Miner</div>
+                  <div className="label">W.A.X</div>
                   <div className="App-card-value">
                     {formatKeyAmount(processedData, "totalVesterRewards", 18, 4, true)} ($
                     {formatKeyAmount(processedData, "totalVesterRewardsUsd", USD_DECIMALS, 2, true)})
                   </div>
                 </div>
                 <div className="App-card-row">
-                  <div className="label">Escrowed Crypto Miner</div>
+                  <div className="label">Escrowed W.A.X</div>
                   <div className="App-card-value">
                     {formatKeyAmount(processedData, "totalEsGmxRewards", 18, 4, true)} ($
                     {formatKeyAmount(processedData, "totalEsGmxRewardsUsd", USD_DECIMALS, 2, true)})
@@ -1775,7 +1775,7 @@ export default function StakeV2({ setPendingTxns, connectWallet }) {
             </div>
             <div className="App-card">
               <div className="App-card-title">
-                <span className="App-card-title-content">Crypto Miner ({chainName})</span>
+                <span className="App-card-title-content">W.A.X ({chainName})</span>
               </div>
               <div className="App-card-divider"></div>
               <div className="App-card-content">
@@ -1822,7 +1822,7 @@ export default function StakeV2({ setPendingTxns, connectWallet }) {
                               <span>{formatKeyAmount(processedData, "glpAprForNativeToken", 2, 2, true)}%</span>
                             </div>
                             <div className="Tooltip-row">
-                              <span className="label">Escrowed Crypto Miner APR</span>
+                              <span className="label">Escrowed W.A.X APR</span>
                               <span>{formatKeyAmount(processedData, "glpAprForEsGmx", 2, 2, true)}%</span>
                             </div>
                             <br />
@@ -1858,7 +1858,7 @@ export default function StakeV2({ setPendingTxns, connectWallet }) {
                               </span>
                             </div>
                             <div className="Tooltip-row">
-                              <span className="label">Escrowed Crypto Miner</span>
+                              <span className="label">Escrowed W.A.X</span>
                               <span>
                                 {formatKeyAmount(processedData, "stakedGlpTrackerRewards", 18, 4)} ($
                                 {formatKeyAmount(processedData, "stakedGlpTrackerRewardsUsd", USD_DECIMALS, 2, true)})
@@ -1919,7 +1919,7 @@ export default function StakeV2({ setPendingTxns, connectWallet }) {
             <div className="App-card">
               <div className="App-card-title">
                 <span className="App-card-title-content">
-                  <Trans>Escrowed Crypto Miner</Trans>
+                  <Trans>Escrowed W.A.X</Trans>
                 </span>
               </div>
 
@@ -1973,7 +1973,7 @@ export default function StakeV2({ setPendingTxns, connectWallet }) {
                               </div>
                             )}
                             <div className="Tooltip-row">
-                              <span className="label">Escrowed Crypto Miner APR</span>
+                              <span className="label">Escrowed W.A.X APR</span>
                               <span>{formatKeyAmount(processedData, "gmxAprForEsGmx", 2, 2, true)}%</span>
                             </div>
                           </>
@@ -2037,7 +2037,7 @@ export default function StakeV2({ setPendingTxns, connectWallet }) {
             </div>
             <div className="Page-description">
               <Trans>
-                Convert esXVI tokens to Crypto Miner tokens.
+                Convert esXVI tokens to W.A.X tokens.
                 <br />
                 Please read the{" "}
                 <a href="about:blank" target="_blank" rel="noopener noreferrer">
@@ -2070,7 +2070,7 @@ export default function StakeV2({ setPendingTxns, connectWallet }) {
                         renderContent={() => {
                           return (
                             <>
-                              {formatAmount(processedData.gmxInStakedGmx, 18, 2, true)} Crypto Miner
+                              {formatAmount(processedData.gmxInStakedGmx, 18, 2, true)} W.A.X
                               <br />
                               {formatAmount(processedData.esGmxInStakedGmx, 18, 2, true)} esXVI
                               <br />
@@ -2090,7 +2090,7 @@ export default function StakeV2({ setPendingTxns, connectWallet }) {
                         handle={`${formatAmount(totalRewardTokens, 18, 2, true)}($0)`}
                         position="right-bottom"
                         renderContent={() => {
-                          return <>{formatKeyAmount(vestingData, "gmxVesterPairAmount", 18, 2, true)} Crypto Miner</>;
+                          return <>{formatKeyAmount(vestingData, "gmxVesterPairAmount", 18, 2, true)} W.A.X</>;
                         }}
                       />
                       {/* {formatKeyAmount(vestingData, "gmxVesterPairAmount", 18, 2, true)} /{" "}
@@ -2115,7 +2115,7 @@ export default function StakeV2({ setPendingTxns, connectWallet }) {
                           return (
                             <>
                               {formatKeyAmount(vestingData, "gmxVesterClaimSum", 18, 4, true)} tokens have been
-                              converted to Crypto Miner from the&nbsp;
+                              converted to W.A.X from the&nbsp;
                               {formatKeyAmount(vestingData, "gmxVesterVestedAmount", 18, 4, true)} esXVI deposited for
                               vesting.
                             </>
@@ -2145,7 +2145,7 @@ export default function StakeV2({ setPendingTxns, connectWallet }) {
                             18,
                             4,
                             true
-                          )} ${t`Crypto Miner tokens can be claimed, use the options under the Total Rewards section to claim them.`}`
+                          )} ${t`W.A.X tokens can be claimed, use the options under the Total Rewards section to claim them.`}`
                         }
                       />
                     </div>
@@ -2203,7 +2203,7 @@ export default function StakeV2({ setPendingTxns, connectWallet }) {
                         handle={`${formatAmount(processedData.glpBalance, 18, 2, true)}($0)`}
                         position="right-bottom"
                         renderContent={() => {
-                          return <>{formatKeyAmount(vestingData, "gmxVesterPairAmount", 18, 2, true)} Crypto Miner</>;
+                          return <>{formatKeyAmount(vestingData, "gmxVesterPairAmount", 18, 2, true)} W.A.X</>;
                         }}
                       />
                       {/* {formatKeyAmount(vestingData, "glpVesterPairAmount", 18, 2, true)} /{" "}
@@ -2228,7 +2228,7 @@ export default function StakeV2({ setPendingTxns, connectWallet }) {
                           return (
                             <>
                               {formatKeyAmount(vestingData, "glpVesterClaimSum", 18, 4, true)} tokens have been
-                              converted to Crypto Miner from the&nbsp;
+                              converted to W.A.X from the&nbsp;
                               {formatKeyAmount(vestingData, "glpVesterVestedAmount", 18, 4, true)} esXVI deposited for
                               vesting.
                             </>
@@ -2256,7 +2256,7 @@ export default function StakeV2({ setPendingTxns, connectWallet }) {
                             18,
                             4,
                             true
-                          )} ${t`Crypto Miner tokens can be claimed, use the options under the Total Rewards section to claim them.`}`
+                          )} ${t`W.A.X tokens can be claimed, use the options under the Total Rewards section to claim them.`}`
                         }
                       ></Tooltip>
                     </div>

@@ -16,7 +16,7 @@ function Jobs() {
           <div className="section-title-icon"></div>
           <div className="section-title-content">
             <div className="Page-title">Jobs</div>
-            <div className="Page-description">Job openings at Crypto Miner.</div>
+            <div className="Page-description">Job openings at W.A.X.</div>
           </div>
         </div>
         <div className="jobs-page-body">
@@ -30,13 +30,13 @@ function Jobs() {
 
 function NoJob() {
   return (
-    <Card title="No open positions at Crypto Miner currently">
+    <Card title="No open positions at W.A.X currently">
       <div className="body-para">
         <p className="subheading">
-          Crypto Miner is not actively looking for new hires at the moment. However, if you think you can contribute to
+          W.A.X is not actively looking for new hires at the moment. However, if you think you can contribute to
           the project, please email{" "}
-          <a target="_blank" href="mailto:jobs@Crypto Miner.io" rel="noopener noreferrer">
-            jobs@Crypto Miner.io
+          <a target="_blank" href="mailto:jobs@WAX.io" rel="noopener noreferrer">
+            jobs@WAX.io
           </a>
           .
         </p>
@@ -51,7 +51,7 @@ function NoJob() {
 //       <div className="body-para">
 //         <p className="subheading">What you will do:</p>
 //         <ul>
-//           <li>Work closely with the Crypto Miner team on the Crypto Miner front-end website.</li>
+//           <li>Work closely with the W.A.X team on the W.A.X front-end website.</li>
 //           <li>Collaborate and discuss features to be worked on.</li>
 //           <li>Remote full-time position, flexible working hours.</li>
 //         </ul>
@@ -65,11 +65,11 @@ function NoJob() {
 //             <li>Must speak fluent English and available to start right away.</li>
 //             <li>Comfortable making changes to the interface following our current design guidelines.</li>
 //           </ul>
-//           <p>The salary is 60,000 to 120,000 USD + 1,000 to 3,000 Crypto Miner a year.</p>
+//           <p>The salary is 60,000 to 120,000 USD + 1,000 to 3,000 W.A.X a year.</p>
 //           <p className="jobs-contact">
 //             If the job suits you, please get in touch with{" "}
-//             <a target="_blank" href="mailto:jobs@Crypto Miner.io" rel="noopener noreferrer">
-//               jobs@Crypto Miner.io
+//             <a target="_blank" href="mailto:jobs@WAX.io" rel="noopener noreferrer">
+//               jobs@WAX.io
 //             </a>{" "}
 //             using the following email subject: Application for Senior front-end developer: [Your name]
 //           </p>

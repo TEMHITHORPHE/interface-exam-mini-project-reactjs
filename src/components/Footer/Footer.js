@@ -44,7 +44,7 @@ export default function Footer({ showRedirectModal, redirectPopupTimestamp }) {
 
             <div className="copyright">
               <Trans>
-                &copy;Copyright Crypto Miner 2022. All rights reserves <br />
+                &copy;Copyright W.A.X 2024. All rights reserves <br />
               </Trans>
               <NavLink to="/terms-and-conditions" className="Footer-link" activeClassName="active">
                 <Trans>Terms and Conditions</Trans>

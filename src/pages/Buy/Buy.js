@@ -19,7 +19,7 @@ export default function BuyGMXGLP() {
             <div className="section-title-content">
               <div className="Page-title">
                 <img src={SpiderIcon} width={52} height={52} />
-                <Trans>Buy Crypto Miner or GLP</Trans>
+                <Trans>Buy W.A.X or GLP</Trans>
               </div>
             </div>
           </div>

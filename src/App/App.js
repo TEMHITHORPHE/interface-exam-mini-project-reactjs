@@ -199,9 +199,9 @@ function FullApp() {
             <Trans>Install MetaMask</Trans>
           </a>
           {userOnMobileDevice ? (
-            <Trans>, and use Crypto Miner with its built-in browser</Trans>
+            <Trans>, and use W.A.X with its built-in browser</Trans>
           ) : (
-            <Trans> to start using Crypto Miner</Trans>
+            <Trans> to start using W.A.X</Trans>
           )}
           .
         </div>
@@ -221,9 +221,9 @@ function FullApp() {
             <Trans>Install Coinbase Wallet</Trans>
           </a>
           {userOnMobileDevice ? (
-            <Trans>, and use Crypto Miner with its built-in browser</Trans>
+            <Trans>, and use W.A.X with its built-in browser</Trans>
           ) : (
-            <Trans> to start using Crypto Miner</Trans>
+            <Trans> to start using W.A.X</Trans>
           )}
           .
         </div>

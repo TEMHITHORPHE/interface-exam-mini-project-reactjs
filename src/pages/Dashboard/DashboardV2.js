@@ -681,7 +681,7 @@ export default function DashboardV2({ pageMiningState }) {
                       handle={aumCount}
                       position="right-bottom"
                       renderContent={() => (
-                        <span className="label">{t`Assets Under Management: Crypto Miner staked (All chains) + GLP pool (${chainName})`}</span>
+                        <span className="label">{t`Assets Under Management: W.A.X staked (All chains) + GLP pool (${chainName})`}</span>
                       )}
                     />
                   </div>
@@ -867,10 +867,10 @@ export default function DashboardV2({ pageMiningState }) {
                     </div>
                     <div className="App-card-title-mark-info">
                       <div className="App-card-title-mark-title">
-                        <Trans>Crypto Miner</Trans>
+                        <Trans>W.A.X</Trans>
                       </div>
                       <div className="App-card-title-mark-subtitle">
-                        <Trans>Crypto Miner</Trans>
+                        <Trans>W.A.X</Trans>
                       </div>
                     </div>
                   </div>
@@ -907,7 +907,7 @@ export default function DashboardV2({ pageMiningState }) {
                         <TooltipComponent
                           position="right-bottom"
                           className="nowrap"
-                          handle={`${formatArrayAmount(totalSupplies, 1, LEVERAGE_DECIMALS, 0, true)} Crypto Miner`}
+                          handle={`${formatArrayAmount(totalSupplies, 1, LEVERAGE_DECIMALS, 0, true)} W.A.X`}
                           renderContent={() => (
                             <TooltipCard
                               label="Supply on Binance"

@@ -112,7 +112,7 @@ export default function BuyXvi(props) {
                         <Trans>Buy BNB</Trans>
                       </div>
                       <div className="BuyGMXGLP-description">
-                        <Trans>BNB is needed on Binance to purchase Crypto Miner.</Trans>
+                        <Trans>BNB is needed on Binance to purchase W.A.X.</Trans>
                       </div>
                       <div className="buttons-group col-1">
                         <Button imgSrc={binanceIcon} href="https://www.binance.com/" className="binance-btn">
@@ -142,14 +142,14 @@ export default function BuyXvi(props) {
               )}
               {chainId === BSC_TESTNET && (
                 <Card
-                  title={t`Buy Crypto Miner Token`}
+                  title={t`Buy W.A.X Token`}
                   subtitle={t`Lorem Ipsum is simply dummy text of the printing`}
                   icon={Binance2}
                 >
                   <div className="App-card-content">
                     <div className="exchange-info-group">
                       <div className="BuyGMXGLP-description-1">
-                        <Trans>Purchase Crypto Miner Token</Trans>
+                        <Trans>Purchase W.A.X Token</Trans>
                       </div>
                       <div className="BuyGMXGLP-description">
                         <Trans>Lorem Ipsum is simply dummy text of the printing and typesetting industry.</Trans>
@@ -178,7 +178,7 @@ export default function BuyXvi(props) {
                         <Trans>Buy VLX</Trans>
                       </div>
                       <div className="BuyGMXGLP-description">
-                        <Trans>VLX is needed on Velas to purchase Crypto Miner.</Trans>
+                        <Trans>VLX is needed on Velas to purchase W.A.X.</Trans>
                       </div>
                       <div className="buttons-group col-1">
                         <Button imgSrc={VelasIcon} href="https://www.velas.com/" className="binance-btn">
@@ -208,14 +208,14 @@ export default function BuyXvi(props) {
               )}
               {chainId === VELAS_TESTNET && (
                 <Card
-                  title={t`Buy Crypto Miner Token`}
+                  title={t`Buy W.A.X Token`}
                   subtitle={t`Lorem Ipsum is simply dummy text of the printing`}
                   icon={Binance2}
                 >
                   <div className="App-card-content">
                     <div className="exchange-info-group">
                       <div className="BuyGMXGLP-description-1">
-                        <Trans>Purchase Crypto Miner Token</Trans>
+                        <Trans>Purchase W.A.X Token</Trans>
                       </div>
                       <div className="BuyGMXGLP-description">
                         <Trans>Lorem Ipsum is simply dummy text of the printing and typesetting industry.</Trans>
@@ -244,7 +244,7 @@ export default function BuyXvi(props) {
         ) : (
           <NavLink onClick={() => setIsModalVisible(true)} className="App-button-option-dark App-card-option" to="#">
             <span>
-              <Trans>Buy Crypto Miner Token</Trans>
+              <Trans>Buy W.A.X Token</Trans>
             </span>
           </NavLink>
         )}

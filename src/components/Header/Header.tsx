@@ -113,7 +113,7 @@ export function Header({
         <div className={showStickyNode === 1 ? "header-sticky-notification" : "header-sticky-notification-hide"}>
           <div className="header-sticky-noti-title">
             <Trans>
-              The Crypto Miner Community is coming together. Get your tickets to breakpoint, Nov. 4-7 In Lisbon!
+              The W.A.X Community is coming together. Get your tickets to breakpoint, Nov. 4-7 In Lisbon!
             </Trans>
           </div>
           <div
@@ -135,7 +135,7 @@ export function Header({
               redirectPopupTimestamp={redirectPopupTimestamp}
               showRedirectModal={showRedirectModal}
             >
-              <div style={{ color: "orange" }}>CRYPTO MINER</div>
+              <div style={{ color: "orange" }}>W.A.X</div>
             </HeaderLink>
             <AppHeaderLinks redirectPopupTimestamp={redirectPopupTimestamp} showRedirectModal={showRedirectModal} />
           </div>
@@ -162,7 +162,7 @@ export function Header({
                 {isDrawerVisible && <FaTimes className="App-header-menu-icon" />}
               </div>
               <div className="App-header-link-main clickable" onClick={() => setIsDrawerVisible(!isDrawerVisible)}>
-                <div style={{ color: "orange" }}>CRYPTO MINER</div>
+                <div style={{ color: "orange" }}>W.A.X</div>
               </div>
             </div>
             <div className="App-header-container-right">

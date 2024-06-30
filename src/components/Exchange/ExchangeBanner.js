@@ -8,7 +8,7 @@ export default function ExchangeBanner(props) {
   return (
     <div className="ExchangeBanner">
       <p className="ExchangeBanner-text">
-        Trade on Crypto Miner and win <span className="ExchangeBanner-price">$250.000</span> in prizes! Live until
+        Trade on W.A.X and win <span className="ExchangeBanner-price">$250.000</span> in prizes! Live until
         November 30th,{" "}
         <a href="about:blank" target="_blank" className="ExchangeBanner-link" rel="noreferrer">
           click here

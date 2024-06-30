@@ -30,59 +30,59 @@ export default function Ecosystem() {
   const { chainId } = useChainId();
   const XVIPages = [
     {
-      title: "Crypto Miner Governance",
+      title: "W.A.X Governance",
       link: "about:blank",
-      linkLabel: "gov.Crypto Miner.io",
-      about: "Crypto Miner Governance Page",
+      linkLabel: "gov.WAX.io",
+      about: "W.A.X Governance Page",
       chainIds: [BSC_TESTNET],
     },
     {
-      title: "Crypto Miner Stats",
+      title: "W.A.X Stats",
       link: "about:blank",
-      linkLabel: "stats.Crypto Miner.io",
-      about: "Crypto Miner Stats Page",
+      linkLabel: "stats.WAX.io",
+      about: "W.A.X Stats Page",
       chainIds: [BSC_TESTNET],
     },
     {
-      title: "Crypto Miner Proposals",
+      title: "W.A.X Proposals",
       link: "about:blank",
       linkLabel: "snapshot.org",
-      about: "Crypto Miner Proposals Voting page",
+      about: "W.A.X Proposals Voting page",
       chainIds: [BSC_TESTNET],
     },
     {
-      title: "Crypto Miner Announcements",
+      title: "W.A.X Announcements",
       link: "about:blank",
       linkLabel: "t.me",
-      about: "Crypto Miner Announcements and Updates",
+      about: "W.A.X Announcements and Updates",
       chainIds: [BSC_TESTNET],
     },
   ];
 
   const communityProjects = [
     {
-      title: "Crypto Miner Blueberry Club",
+      title: "W.A.X Blueberry Club",
       link: "about:blank",
       linkLabel: "blueberry.club",
-      about: "Crypto Miner Blueberry NFTs",
+      about: "W.A.X Blueberry NFTs",
       creatorLabel: "@xm92boi",
       creatorLink: "about:blank",
       chainIds: [BSC_TESTNET],
     },
     {
-      title: "Crypto Miner Leaderboard",
+      title: "W.A.X Leaderboard",
       link: "about:blank",
-      linkLabel: "Crypto Miner.house",
-      about: "Leaderboard for Crypto Miner traders",
+      linkLabel: "WAX.house",
+      about: "Leaderboard for W.A.X traders",
       creatorLabel: "@Itburnz",
       creatorLink: "about:blank",
       chainIds: [BSC_TESTNET],
     },
     {
-      title: "Crypto Miner Positions Bot",
+      title: "W.A.X Positions Bot",
       link: "about:blank",
       linkLabel: "t.me",
-      about: "Telegram bot for Crypto Miner position updates",
+      about: "Telegram bot for W.A.X position updates",
       creatorLabel: "@zhongfu",
       creatorLink: "about:blank",
       chainIds: [BSC_TESTNET],
@@ -91,7 +91,7 @@ export default function Ecosystem() {
       title: "Blueberry Pulse",
       link: "about:blank",
       linkLabel: "substack.com",
-      about: "Crypto Miner Weekly Updates",
+      about: "W.A.X Weekly Updates",
       creatorLabel: "@puroscohiba",
       creatorLink: "about:blank",
       chainIds: [BSC_TESTNET],
@@ -106,7 +106,7 @@ export default function Ecosystem() {
       chainIds: [BSC_TESTNET],
     },
     {
-      title: "Crypto Miner Yield Simulator",
+      title: "W.A.X Yield Simulator",
       link: "about:blank",
       linkLabel: "defisims.com",
       about: "Yield simulator for Crypto Miner",
@@ -115,16 +115,16 @@ export default function Ecosystem() {
       chainIds: [BSC_TESTNET],
     },
     {
-      title: "Crypto Miner Returns Calculator",
+      title: "W.A.X Returns Calculator",
       link: "about:blank",
       linkLabel: "docs.google.com",
-      about: "Returns calculator for Crypto Miner and GLP",
+      about: "Returns calculator for W.A.X and GLP",
       creatorLabel: "@AStoicTrader1",
       creatorLink: "about:blank",
       chainIds: [BSC_TESTNET],
     },
     {
-      title: "Crypto Miner Compound Calculator",
+      title: "W.A.X Compound Calculator",
       link: "about:blank",
       linkLabel: "docs.google.com",
       about: "Optimal compound interval calculator",
@@ -133,7 +133,7 @@ export default function Ecosystem() {
       chainIds: [BSC_TESTNET],
     },
     {
-      title: "Crypto Miner Trading Stats",
+      title: "W.A.X Trading Stats",
       link: "about:blank",
       linkLabel: "t.me",
       about: "Telegram bot for Open Interest on Crypto Miner",
@@ -142,19 +142,19 @@ export default function Ecosystem() {
       chainIds: [BSC_TESTNET],
     },
     {
-      title: "Crypto Miner Staking Bot",
+      title: "W.A.X Staking Bot",
       link: "about:blank",
       linkLabel: "t.me",
-      about: "Crypto Miner staking rewards updates and insights",
+      about: "W.A.X staking rewards updates and insights",
       creatorLabel: "@XVI_Staking_bot",
       creatorLink: "about:blank",
       chainIds: [BSC_TESTNET],
     },
     {
-      title: "Crypto Miner Staking Calculator",
+      title: "W.A.X Staking Calculator",
       link: "about:blank",
       linkLabel: "XVIstaking.com",
-      about: "Crypto Miner staking calculator",
+      about: "W.A.X staking calculator",
       creatorLabel: "@n1njawtf",
       creatorLink: "about:blank",
       chainIds: [BSC_TESTNET],
@@ -163,25 +163,25 @@ export default function Ecosystem() {
 
   const dashboardProjects = [
     {
-      title: "Crypto Miner Referrals Dashboard",
+      title: "W.A.X Referrals Dashboard",
       link: "about:blank",
       linkLabel: "XVIReferrals.com",
-      about: "Dashboard for Crypto Miner referral stats",
+      about: "Dashboard for W.A.X referral stats",
       creatorLabel: "@kyzoeth",
       creatorLink: "about:blank",
       chainIds: [BSC_TESTNET],
     },
     {
-      title: "Crypto Miner Terminal",
+      title: "W.A.X Terminal",
       link: "about:blank",
       linkLabel: "XVITerminal.com",
-      about: "Crypto Miner explorer for stats and traders",
+      about: "W.A.X explorer for stats and traders",
       creatorLabel: "@vipineth",
       creatorLink: "about:blank",
       chainIds: [BSC_TESTNET],
     },
     {
-      title: "Crypto Miner Analytics",
+      title: "W.A.X Analytics",
       link: "about:blank",
       linkLabel: "XVIStats.com",
       about: "Financial reports and protocol analytics",
@@ -193,7 +193,7 @@ export default function Ecosystem() {
       title: "TokenTerminal",
       link: "about:blank",
       linkLabel: "tokenterminal.com",
-      about: "Crypto Miner fundamentals",
+      about: "W.A.X fundamentals",
       creatorLabel: "@tokenterminal",
       creatorLink: "about:blank",
       chainIds: [BSC_TESTNET],
@@ -226,10 +226,10 @@ export default function Ecosystem() {
       chainIds: [BSC_TESTNET],
     },
     {
-      title: "Crypto Miner Perpetuals Data",
+      title: "W.A.X Perpetuals Data",
       link: "about:blank",
       linkLabel: "laevitas.ch",
-      about: "Crypto Miner Perpetuals Data",
+      about: "W.A.X Perpetuals Data",
       creatorLabel: "@laevitas1",
       creatorLink: "about:blank",
       chainIds: [BSC_TESTNET],
@@ -364,22 +364,22 @@ export default function Ecosystem() {
       about: "Telegram Group",
     },
     {
-      title: "Crypto Miner (Chinese)",
+      title: "W.A.X (Chinese)",
       link: "about:blank",
       linkLabel: "t.me",
       about: "Telegram Group (Chinese)",
     },
     {
-      title: "Crypto Miner (Portuguese)",
+      title: "W.A.X (Portuguese)",
       link: "about:blank",
       linkLabel: "t.me",
       about: "Telegram Group (Portuguese)",
     },
     {
-      title: "Crypto Miner Trading Chat",
+      title: "W.A.X Trading Chat",
       link: "about:blank",
       linkLabel: "t.me",
-      about: "Crypto Miner community discussion",
+      about: "W.A.X community discussion",
     },
   ];
 
@@ -422,7 +422,7 @@ export default function Ecosystem() {
             <div className="DashboardV2-projects-header">
               <div className="DashboardV2-project-title">
                 <div className="project-title">
-                  <Trans>Crypto Miner Pages</Trans>
+                  <Trans>W.A.X Pages</Trans>
                 </div>
                 <div className="project-desc">
                   <Trans>Lorem Ipsum is simply dummy text of the printing and typesetting industry.</Trans>
@@ -438,7 +438,7 @@ export default function Ecosystem() {
             </div>
             <div className="Page-description">
               <Trans>
-                Projects developed by the Crypto Miner community. <br />
+                Projects developed by the W.A.X community. <br />
                 Please exercise caution when interacting with any app, apps are fully maintained by community
                 developers.
               </Trans>
@@ -490,7 +490,7 @@ export default function Ecosystem() {
               <Trans>Dashboards</Trans>
             </div>
             <div className="Page-description">
-              <Trans>Crypto Miner dashboards and analytics.</Trans>
+              <Trans>W.A.X dashboards and analytics.</Trans>
             </div>
           </div>
           <div className="DashboardV2-projects">
@@ -540,7 +540,7 @@ export default function Ecosystem() {
               <Trans>Partnerships and Integrations</Trans>
             </div>
             <div className="Page-description">
-              <Trans>Projects integrated with Crypto Miner.</Trans>
+              <Trans>Projects integrated with WAX.</Trans>
             </div>
           </div>
           <div className="DashboardV2-projects">

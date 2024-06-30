@@ -2646,7 +2646,7 @@ export function sleep(ms) {
 
 export function getPageTitle(data) {
   return `${data} | Decentralized
-  Perpetual Exchange | Crypto Miner`;
+  Perpetual Exchange | W.A.X`;
 }
 
 export function isHashZero(value) {

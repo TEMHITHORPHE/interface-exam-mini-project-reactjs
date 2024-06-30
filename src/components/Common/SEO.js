@@ -5,7 +5,7 @@ import { t } from "@lingui/macro";
 function SEO(props) {
   const { children, ...customMeta } = props;
   const meta = {
-    title: t`Crypto Miner | Decentralized Perpetual Exchange`,
+    title: t`W.A.X | Decentralized Perpetual Exchange`,
     description: t`Trade spot or perpetual BTC, ETH, AVAX and other top cryptocurrencies with up to 30x leverage directly from your wallet on Arbitrum and Avalanche.`,
     image: "about:blank",
     type: "exchange",
@@ -18,7 +18,7 @@ function SEO(props) {
         <meta name="robots" content="follow, index" />
         <meta content={meta.description} name="description" />
         <meta property="og:type" content={meta.type} />
-        <meta property="og:site_name" content="Crypto Miner" />
+        <meta property="og:site_name" content="W.A.X" />
         <meta property="og:description" content={meta.description} />
         <meta property="og:title" content={meta.title} />
         <meta property="og:image" content={meta.image} />

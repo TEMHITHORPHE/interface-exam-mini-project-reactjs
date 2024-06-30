@@ -97,7 +97,7 @@ export default function GlpSwap(props) {
   const { savedSlippageAmount, isBuying, setPendingTxns, connectWallet, setIsBuying } = props;
   const history = useHistory();
   const swapLabel = isBuying ? "BuyGlp" : "SellGlp";
-  const tabLabel = isBuying ? t`Buy Crypto Miner` : t`Sell Crypto Miner`;
+  const tabLabel = isBuying ? t`Buy W.A.X` : t`Sell W.A.X`;
   const { active, library, account } = useWeb3React();
   const { chainId } = useChainId();
   // const chainName = getChainName(chainId)
@@ -661,7 +661,7 @@ export default function GlpSwap(props) {
   const nativeTokenSymbol = getNativeToken(chainId).symbol;
 
   const onSwapOptionChange = (opt) => {
-    if (opt === t`Sell Crypto Miner`) {
+    if (opt === t`Sell W.A.X`) {
       switchSwapOption("redeem");
     } else {
       switchSwapOption();
@@ -691,11 +691,11 @@ export default function GlpSwap(props) {
           <div className="App-card-title stats-card-title">
             <div className="App-card-title-mark">
               <div className="App-card-title-mark-icon">
-                <img width="40" src={SpiderIcon} alt="Crypto Miner" height={40} />
+                <img width="40" src={SpiderIcon} alt="W.A.X" height={40} />
               </div>
               <div className="App-card-title-mark-info">
-                <div className="App-card-title-mark-title">Crypto Miner Token</div>
-                <div className="App-card-title-mark-subtitle">Crypto Miner</div>
+                <div className="App-card-title-mark-title">W.A.X Token</div>
+                <div className="App-card-title-mark-subtitle">W.A.X</div>
               </div>
             </div>
             <div>
@@ -770,7 +770,7 @@ export default function GlpSwap(props) {
                         </div>
                         <div className="Tooltip-row">
                           <span className="label">
-                            <Trans>Escrowed Crypto Miner APR</Trans>
+                            <Trans>Escrowed W.A.X APR</Trans>
                           </span>
                           <span>{formatAmount(stakedGlpTrackerApr, 2, 2, false)}%</span>
                         </div>
@@ -795,7 +795,7 @@ export default function GlpSwap(props) {
         </div>
         <div className="GlpSwap-box App-box">
           <Tab
-            options={[t`Buy Crypto Miner`, t`Sell Crypto Miner`]}
+            options={[t`Buy W.A.X`, t`Sell W.A.X`]}
             option={tabLabel}
             onChange={onSwapOptionChange}
             className="Exchange-swap-option-tabs"
