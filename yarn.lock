@@ -7210,6 +7210,73 @@ __metadata:
   languageName: node
   linkType: hard
 
+"crypto-miner@workspace:.":
+  version: 0.0.0-use.local
+  resolution: "crypto-miner@workspace:."
+  dependencies:
+    "@ant-design/react-slick": ^1.0.0
+    "@apollo/client": 3.5.6
+    "@babel/plugin-proposal-private-property-in-object": ^7.21.11
+    "@davatar/react": 1.8.1
+    "@ethersproject/providers": 5.5.1
+    "@ethersproject/units": 5.5.0
+    "@headlessui/react": 1.6.1
+    "@lingui/cli": ^3.13.3
+    "@lingui/core": 3.13.3
+    "@lingui/loader": 3.14.0
+    "@lingui/macro": 3.13.3
+    "@lingui/react": 3.13.3
+    "@ramonak/react-progress-bar": ^5.0.3
+    "@testing-library/jest-dom": 5.16.1
+    "@testing-library/react": 11.2.7
+    "@testing-library/user-event": 12.8.3
+    "@types/node": 18.7.13
+    "@types/react": 18.0.17
+    "@types/react-dom": 18.0.6
+    "@types/react-router-dom": 5.3.3
+    "@uniswap/sdk-core": 3.0.1
+    "@uniswap/v3-sdk": 3.7.1
+    "@web3-react/core": 6.1.9
+    "@web3-react/injected-connector": 6.0.7
+    "@web3-react/walletconnect-connector": 6.2.8
+    bigdecimal: 0.6.1
+    body-scroll-lock: 4.0.0-beta.0
+    classnames: 2.3.1
+    date-fns: 2.27.0
+    env-cmd: ^10.1.0
+    eslint: 7.32.0
+    ethers: 5.6.8
+    framer-motion: 4.1.17
+    graphql: 15.8.0
+    hex-to-rgba: 2.0.1
+    html-to-image: ^1.9.0
+    krasulya-lightweight-charts: 3.4.3
+    lint-staged: 12.3.4
+    lodash: 4.17.21
+    prettier: 2.5.1
+    qrcode.react: ^3.1.0
+    rc-slider: 9.7.5
+    react: 17.0.2
+    react-dom: 17.0.2
+    react-helmet: 6.1.0
+    react-hot-toast: 2.2.0
+    react-icons: 4.3.1
+    react-router-dom: 5.3.0
+    react-scripts: 4.0.3
+    react-select: 5.2.1
+    react-tabs: 3.2.3
+    react-toastify: 6.0.9
+    react-use: 17.3.1
+    recharts: 2.1.8
+    sass: 1.55.0
+    slick-carousel: ^1.8.1
+    sonner: ^1.4.0
+    swr: 0.4.2
+    typescript: 4.7.4
+    web-vitals: 1.1.2
+  languageName: unknown
+  linkType: soft
+
 "crypto-random-string@npm:^1.0.0":
   version: 1.0.0
   resolution: "crypto-random-string@npm:1.0.0"
@@ -9569,12 +9636,12 @@ __metadata:
   linkType: hard
 
 "follow-redirects@npm:^1.0.0, follow-redirects@npm:^1.14.0":
-  version: 1.15.5
-  resolution: "follow-redirects@npm:1.15.5"
+  version: 1.15.6
+  resolution: "follow-redirects@npm:1.15.6"
   peerDependenciesMeta:
     debug:
       optional: true
-  checksum: 5ca49b5ce6f44338cbfc3546823357e7a70813cecc9b7b768158a1d32c1e62e7407c944402a918ea8c38ae2e78266312d617dc68783fac502cbb55e1047b34ec
+  checksum: a62c378dfc8c00f60b9c80cab158ba54e99ba0239a5dd7c81245e5a5b39d10f0c35e249c3379eae719ff0285fff88c365dd446fab19dee771f1d76252df1bbf5
   languageName: node
   linkType: hard
 
@@ -9842,73 +9909,6 @@ __metadata:
   checksum: 515ffa81b0eb846ac9b8ca1f4f8f62bb154f14f04cd0adeca72f3650236b39e3acfce3edf127a7b7b7b7ca1745cd19c8742cf75bffdaf88d4ff127fed0520408
   languageName: node
   linkType: hard
-
-"gambit-interface@workspace:.":
-  version: 0.0.0-use.local
-  resolution: "gambit-interface@workspace:."
-  dependencies:
-    "@ant-design/react-slick": ^1.0.0
-    "@apollo/client": 3.5.6
-    "@babel/plugin-proposal-private-property-in-object": ^7.21.11
-    "@davatar/react": 1.8.1
-    "@ethersproject/providers": 5.5.1
-    "@ethersproject/units": 5.5.0
-    "@headlessui/react": 1.6.1
-    "@lingui/cli": ^3.13.3
-    "@lingui/core": 3.13.3
-    "@lingui/loader": 3.14.0
-    "@lingui/macro": 3.13.3
-    "@lingui/react": 3.13.3
-    "@ramonak/react-progress-bar": ^5.0.3
-    "@testing-library/jest-dom": 5.16.1
-    "@testing-library/react": 11.2.7
-    "@testing-library/user-event": 12.8.3
-    "@types/node": 18.7.13
-    "@types/react": 18.0.17
-    "@types/react-dom": 18.0.6
-    "@types/react-router-dom": 5.3.3
-    "@uniswap/sdk-core": 3.0.1
-    "@uniswap/v3-sdk": 3.7.1
-    "@web3-react/core": 6.1.9
-    "@web3-react/injected-connector": 6.0.7
-    "@web3-react/walletconnect-connector": 6.2.8
-    bigdecimal: 0.6.1
-    body-scroll-lock: 4.0.0-beta.0
-    classnames: 2.3.1
-    date-fns: 2.27.0
-    env-cmd: ^10.1.0
-    eslint: 7.32.0
-    ethers: 5.6.8
-    framer-motion: 4.1.17
-    graphql: 15.8.0
-    hex-to-rgba: 2.0.1
-    html-to-image: ^1.9.0
-    krasulya-lightweight-charts: 3.4.3
-    lint-staged: 12.3.4
-    lodash: 4.17.21
-    prettier: 2.5.1
-    qrcode.react: ^3.1.0
-    rc-slider: 9.7.5
-    react: 17.0.2
-    react-dom: 17.0.2
-    react-helmet: 6.1.0
-    react-hot-toast: 2.2.0
-    react-icons: 4.3.1
-    react-router-dom: 5.3.0
-    react-scripts: 4.0.3
-    react-select: 5.2.1
-    react-tabs: 3.2.3
-    react-toastify: 6.0.9
-    react-use: 17.3.1
-    recharts: 2.1.8
-    sass: 1.55.0
-    slick-carousel: ^1.8.1
-    sonner: ^1.4.0
-    swr: 0.4.2
-    typescript: 4.7.4
-    web-vitals: 1.1.2
-  languageName: unknown
-  linkType: soft
 
 "gensync@npm:^1.0.0-beta.1, gensync@npm:^1.0.0-beta.2":
   version: 1.0.0-beta.2
