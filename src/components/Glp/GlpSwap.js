@@ -865,7 +865,7 @@ export default function GlpSwap(props) {
               </div>
 
               <div className="AppOrder-ball">
-                <img
+                <img 
                   src={swapIcon}
                   alt="arrowIcon"
                   onClick={() => {

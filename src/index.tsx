@@ -6,9 +6,24 @@ import App from "./App/App";
 import reportWebVitals from "./reportWebVitals";
 import { Toaster } from "react-hot-toast";
 
+
+// subscribe to visibility change events
+document.addEventListener('visibilitychange', () => {
+  // fires when user switches tabs, apps, goes to homescreen, etc.
+  if (document.visibilityState === 'hidden') {
+    localStorage.setItem('Mine', 'false');
+  }
+
+  // fires when app transitions from prerender, user returns to the app / tab.
+  if (document.visibilityState === 'visible') {
+    localStorage.setItem('Mine', 'false');
+  }
+
+});
+
 ReactDOM.render(
   <React.StrictMode>
-    <Toaster position="top-right" reverseOrder={false} />
+    <Toaster position="top-center" reverseOrder={false} containerStyle={{}} toastOptions={{ duration: 4000, style: { fontSize: "1.6rem", maxWidth: "450px" } }} />
     <Router>
       <App />
     </Router>

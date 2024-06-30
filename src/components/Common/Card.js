@@ -12,7 +12,7 @@ function Card({ title, children, className, tooltipText, icon, subtitle }) {
         />
       ) : (
         <div className="card-header">
-          { icon ? (<img src={icon} width={48} height={48}/>) : (<></>) }
+          { icon ? (<img alt="" src={icon} width={48} height={48}/>) : (<></>) }
           <div className="card-title-group">
             <div className="card-title-first">{title}</div>
             <div className="card-title-second">{subtitle}</div>

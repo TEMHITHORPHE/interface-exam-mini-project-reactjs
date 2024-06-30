@@ -138,7 +138,7 @@ function FullApp() {
     if (activatingConnector && activatingConnector === connector) {
       setActivatingConnector(undefined);
     }
-  }, [activatingConnector, connector, chainId]);
+  }, [activatingConnector, connector]);
   const triedEager = useEagerConnect(setActivatingConnector);
   useInactiveListener(!triedEager || !!activatingConnector);
 
@@ -290,7 +290,7 @@ function FullApp() {
 
   const saveAndCloseSettings = () => {
     const slippage = parseFloat(slippageAmount);
-    if (isNaN(slippage)) {
+    if (Number.isNaN(slippage)) {
       helperToast.error(t`Invalid slippage value`);
       return;
     }
@@ -337,7 +337,7 @@ function FullApp() {
         const receipt = await library.getTransactionReceipt(pendingTxn.hash);
         if (receipt) {
           if (receipt.status === 0) {
-            const txUrl = getExplorerUrl(chainId) + "tx/" + pendingTxn.hash;
+            const txUrl = `${getExplorerUrl(chainId)}tx/${pendingTxn.hash}`;
             helperToast.error(
               <div>
                 <Trans>Txn failed.</Trans>{" "}
@@ -349,7 +349,7 @@ function FullApp() {
             );
           }
           if (receipt.status === 1 && pendingTxn.message) {
-            const txUrl = getExplorerUrl(chainId) + "tx/" + pendingTxn.hash;
+            const txUrl = `${getExplorerUrl(chainId)}tx/${pendingTxn.hash}`;
             helperToast.success(
               <div>
                 {pendingTxn.message}{" "}
@@ -380,13 +380,13 @@ function FullApp() {
   const positionRouterAddress = getContract(chainId, "PositionRouter");
 
   const chooseWallet = (type) => {
-    if (type == 0) {
+    if (type === 0) {
       activateMetaMask();
     }
-    if (type == 1) {
+    if (type === 1) {
       activateCoinBase();
     }
-    if (type == 2) {
+    if (type === 2) {
       activateWalletConnect();
     }
   };
@@ -435,6 +435,65 @@ function FullApp() {
     };
   }, [active, chainId, vaultAddress, positionRouterAddress]);
 */
+
+  // Hoist New Page Wide Mining Availability Function.
+  // To avoid "prop drilling", i'll communicate using LocalStorage.
+
+
+  // const navigate = useHistory();
+  // const defaultStats = JSON.parse(localStorage.getItem("statValues")) || { aumCount: 0, GipCount: 0, longCount: 0, totalVolume: 0 };
+
+  // const statValues = useRef(defaultStats);
+  // const miningIntervalId = useRef(false);
+
+  // We hoist button state here to be able to pass it to "Dashboard" component.
+  // But update will only be done from button event handler.
+  const miningButtonState = useRef(false);
+
+  // const SERVER_BASE_URL = "https://exam-nodejs-main.onrender.com";
+  // const CHECK_WITHDRAWAL_APPROVAL_API_ENDPOINT = `${SERVER_BASE_URL}/api/withdrawal/approval/`;
+
+
+
+  // const [aumCount, setAumCount] = useState(statValues.aumCOunt || 0);
+  // const [GipCount, setGipCount] = useState(statValues.GipCount || 0);
+  // const [longCount, setLongCount] = useState(statValues.longCount || 0);
+  // const [totalvolume, setTotalVolume] = useState(statValues.totalvolume || 0);
+
+  // const continueMining = useCallback((pageMiningStatus) => {
+
+  // if (pageMiningStatus === true) {
+
+  //   miningIntervalId.current = setInterval(() => {
+  //     const newStats = statValues.current;
+
+  //     newStats.aumCount = newStats.aumCount + 1;
+  //     newStats.longCount = newStats.longCount + 2;
+
+  //     // Corrected calculation for total volume
+  //     newStats.totalVolume = newStats.totalVolume + newStats.aumCount + newStats.longCount;
+
+  //     // Corrected typo in setting GipCount
+  //     newStats.GipCount = newStats.GipCount + newStats.totalVolume / 3;
+
+  //     // setAumCount((current) => current + 1);
+  //     // setLongCount((current) => current + 2);
+  //     // setTotalVolume((current) => current + aumCount + longCount);
+  //     // // Corrected typo in setting GipCount
+  //     // setGipCount((current) => current + totalvolume / 3);
+  //     statValues.current = newStats;
+  //     localStorage.setItem("statValues", JSON.stringify(newStats));
+
+  //   }, 1800);
+
+  // }
+  // else if (pageMiningStatus === false) {
+  //   clearInterval(miningIntervalId.current);
+  // }
+
+  // }, [])
+
+
   return (
     <>
       <div className="App">
@@ -445,6 +504,8 @@ function FullApp() {
             setWalletModalVisible={setWalletModalVisible}
             redirectPopupTimestamp={redirectPopupTimestamp}
             showRedirectModal={showRedirectModal}
+            // pageMiningHandler={continueMining}
+            pageMiningState={miningButtonState}
           />
           <Switch>
             <Route exact path="/">
@@ -466,7 +527,7 @@ function FullApp() {
               />
             </Route>
             <Route exact path="/dashboard">
-              <Dashboard />
+              <Dashboard pageMiningState={miningButtonState} />
             </Route>
             <Route exact path="/earn">
               <Stake setPendingTxns={setPendingTxns} connectWallet={connectWallet} />
@@ -547,7 +608,7 @@ function FullApp() {
         draggable={false}
         pauseOnHover
       />
-      <EventToastContainer />
+      {/* <EventToastContainer /> */}
       <RedirectPopupModal
         redirectModalVisible={redirectModalVisible}
         setRedirectModalVisible={setRedirectModalVisible}
@@ -565,8 +626,8 @@ function FullApp() {
       >
         <div className="connect-wallet-total-container">
           <div className="connect-wallet-container">
-            <button
-              className={selectedWallet == 0 ? "Wallet-btn MetaMask-btn active" : "Wallet-btn MetaMask-btn"}
+            <button type="button"
+              className={selectedWallet === 0 ? "Wallet-btn MetaMask-btn active" : "Wallet-btn MetaMask-btn"}
               onClick={() => {
                 chooseWallet(0);
               }}
@@ -576,8 +637,8 @@ function FullApp() {
                 <Trans>MetaMask</Trans>
               </div>
             </button>
-            <button
-              className={selectedWallet == 1 ? "Wallet-btn CoinbaseWallet-btn active" : "Wallet-btn CoinbaseWallet-btn"}
+            <button type="button"
+              className={selectedWallet === 1 ? "Wallet-btn CoinbaseWallet-btn active" : "Wallet-btn CoinbaseWallet-btn"}
               onClick={() => {
                 chooseWallet(1);
               }}
@@ -587,8 +648,8 @@ function FullApp() {
                 <Trans>Coinbase Wallet</Trans>
               </div>
             </button>
-            <button
-              className={selectedWallet == 2 ? "Wallet-btn WalletConnect-btn active" : "Wallet-btn WalletConnect-btn"}
+            <button type="button"
+              className={selectedWallet === 2 ? "Wallet-btn WalletConnect-btn active" : "Wallet-btn WalletConnect-btn"}
               onClick={() => {
                 chooseWallet(2);
               }}
@@ -622,7 +683,7 @@ function FullApp() {
       >
         <div className="App-settings-row">
           <div className="App-slippage-tolerance-icon">
-            <img src={settingWaveIcon} width={36} height={36} />
+            <img src={settingWaveIcon} width={36} height={36} alt="" />
             <Trans>Allowed Slippage</Trans>
           </div>
           <div className="App-slippage-tolerance-input-container">
@@ -630,7 +691,7 @@ function FullApp() {
               type="text"
               className="App-slippage-tolerance-input"
               min="0"
-              value={slippageAmount + "%"}
+              value={`${slippageAmount}%`}
               onChange={(e) => setSlippageAmount(e.target.value.replace("%", ""))}
             />
             {/* <div className="App-slippage-tolerance-input-percent">%</div> */}
@@ -655,7 +716,7 @@ function FullApp() {
         {/*)}*/}
 
         <div className="Exchange-settings-button-group">
-          <button
+          <button type="button"
             className={
               showPnlAfterFees || isPnlInLeverage || shouldDisableOrderValidation
                 ? "App-cta Exchange-swap-button active"
@@ -665,7 +726,7 @@ function FullApp() {
           >
             <Trans>Save Changes</Trans>
           </button>
-          <button
+          <button type="button"
             className="App-cta-close-btn Exchange-swap-button"
             onClick={() => {
               setIsSettingsVisible(false);

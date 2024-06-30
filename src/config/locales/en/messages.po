@@ -40,7 +40,7 @@ msgstr "24h High"
 msgid "24h Low"
 msgstr "24h Low"
 
-#: src/pages/Dashboard/DashboardV2.js:632
+#: src/pages/Dashboard/DashboardV2.js:634
 msgid "24h Volume"
 msgstr "24h Volume"
 
@@ -62,8 +62,8 @@ msgstr "<0/>Start Mining"
 #~ msgid "<0/>Trade"
 #~ msgstr "<0/>Trade"
 
-#: src/components/Header/AppHeaderUser.tsx:168
-#: src/components/Header/AppHeaderUser.tsx:204
+#: src/components/Header/AppHeaderUser.tsx:179
+#: src/components/Header/AppHeaderUser.tsx:219
 msgid "<0/>{0}"
 msgstr "<0/>{0}"
 
@@ -101,7 +101,7 @@ msgstr ""
 msgid "About"
 msgstr ""
 
-#: src/components/Header/AppHeaderLinks.tsx:131
+#: src/components/Header/AppHeaderLinks.tsx:136
 msgid "About Us"
 msgstr "About Us"
 
@@ -253,7 +253,7 @@ msgstr ""
 msgid "Are you new? Read our documentation"
 msgstr "Are you new? Read our documentation"
 
-#: src/pages/Dashboard/DashboardV2.js:613
+#: src/pages/Dashboard/DashboardV2.js:615
 msgid "Assets Under Management: Crypto Miner staked (All chains) + GLP pool ({chainName})"
 msgstr "Assets Under Management: Crypto Miner staked (All chains) + GLP pool ({chainName})"
 
@@ -325,7 +325,7 @@ msgid "BSC ARP:"
 msgstr "BSC ARP:"
 
 #: src/components/Exchange/SwapBox.js:1989
-#: src/pages/Dashboard/DashboardV2.js:759
+#: src/pages/Dashboard/DashboardV2.js:761
 msgid "Balance"
 msgstr "Balance"
 
@@ -587,7 +587,7 @@ msgstr "Claim submitted."
 msgid "Claim {wrappedTokenSymbol} Rewards"
 msgstr "Claim {wrappedTokenSymbol} Rewards"
 
-#: src/pages/Dashboard/DashboardV2.js:768
+#: src/pages/Dashboard/DashboardV2.js:770
 #: src/pages/Stake/StakeV2.js:2129
 msgid "Claimable"
 msgstr "Claimable"
@@ -772,8 +772,8 @@ msgid "Crypto Currency<0/>Mining"
 msgstr "Crypto Currency<0/>Mining"
 
 #: src/components/TokenCard/TokenCard.js:56
-#: src/pages/Dashboard/DashboardV2.js:799
-#: src/pages/Dashboard/DashboardV2.js:802
+#: src/pages/Dashboard/DashboardV2.js:801
+#: src/pages/Dashboard/DashboardV2.js:804
 msgid "Crypto Miner"
 msgstr "Crypto Miner"
 
@@ -823,7 +823,7 @@ msgstr ""
 msgid "Current Reserved: {0}<0/>Additional reserve required: {1}<1/>{2}"
 msgstr "Current Reserved: {0}<0/>Additional reserve required: {1}<1/>{2}"
 
-#: src/components/Header/AppHeaderLinks.tsx:82
+#: src/components/Header/AppHeaderLinks.tsx:87
 msgid "Dashboard"
 msgstr ""
 
@@ -892,8 +892,8 @@ msgstr ""
 msgid "Display PnL after fees"
 msgstr ""
 
-#: src/pages/Dashboard/DashboardV2.js:940
-#: src/pages/Dashboard/DashboardV2.js:1118
+#: src/pages/Dashboard/DashboardV2.js:942
+#: src/pages/Dashboard/DashboardV2.js:1120
 msgid "Distribution"
 msgstr "Distribution"
 
@@ -901,7 +901,7 @@ msgstr "Distribution"
 msgid "Documentation"
 msgstr "Documentation"
 
-#: src/components/Header/AppHeaderLinks.tsx:126
+#: src/components/Header/AppHeaderLinks.tsx:131
 msgid "Documents"
 msgstr "Documents"
 
@@ -921,12 +921,12 @@ msgstr "Download"
 #~ msgid "ETH is needed on Arbitrum to purchase GMX."
 #~ msgstr ""
 
-#: src/components/Header/AppHeaderLinks.tsx:87
+#: src/components/Header/AppHeaderLinks.tsx:92
 #: src/pages/Stake/StakeV2.js:1437
 msgid "Earn"
 msgstr ""
 
-#: src/components/Header/AppHeaderLinks.tsx:107
+#: src/components/Header/AppHeaderLinks.tsx:112
 msgid "Ecosystem"
 msgstr ""
 
@@ -1098,7 +1098,7 @@ msgstr ""
 #: src/components/Exchange/PositionSeller.js:1107
 #: src/components/Glp/GlpSwap.js:1408
 #: src/components/Glp/GlpSwap.js:1411
-#: src/pages/Dashboard/DashboardV2.js:700
+#: src/pages/Dashboard/DashboardV2.js:702
 msgid "Fees"
 msgstr ""
 
@@ -1110,7 +1110,7 @@ msgstr ""
 msgid "Fees may vary depending on which asset you use to buy GLP."
 msgstr ""
 
-#: src/pages/Dashboard/DashboardV2.js:691
+#: src/pages/Dashboard/DashboardV2.js:693
 msgid "Fees since"
 msgstr "Fees since"
 
@@ -1139,7 +1139,7 @@ msgstr "Forfeit profit not checked"
 msgid "Funds not utilized by current open positions."
 msgstr ""
 
-#: src/pages/Dashboard/DashboardV2.js:1134
+#: src/pages/Dashboard/DashboardV2.js:1136
 msgid "GLP Index Composition"
 msgstr "GLP Index Composition"
 
@@ -1441,8 +1441,8 @@ msgstr "Loading..."
 msgid "Long"
 msgstr ""
 
-#: src/pages/Dashboard/DashboardV2.js:651
-#: src/pages/Dashboard/DashboardV2.js:660
+#: src/pages/Dashboard/DashboardV2.js:653
+#: src/pages/Dashboard/DashboardV2.js:662
 msgid "Long Positions"
 msgstr "Long Positions"
 
@@ -1505,9 +1505,9 @@ msgstr ""
 msgid "Mark Price"
 msgstr "Mark Price"
 
-#: src/pages/Dashboard/DashboardV2.js:873
-#: src/pages/Dashboard/DashboardV2.js:1033
-#: src/pages/Dashboard/DashboardV2.js:1042
+#: src/pages/Dashboard/DashboardV2.js:875
+#: src/pages/Dashboard/DashboardV2.js:1035
+#: src/pages/Dashboard/DashboardV2.js:1044
 msgid "Market Cap"
 msgstr "Market Cap"
 
@@ -1705,16 +1705,16 @@ msgstr ""
 msgid "Orders cancelled."
 msgstr "Orders cancelled."
 
-#: src/pages/Dashboard/DashboardV2.js:602
+#: src/pages/Dashboard/DashboardV2.js:604
 msgid "Overview"
 msgstr "Overview"
 
-#: src/pages/Dashboard/DashboardV2.js:1147
+#: src/pages/Dashboard/DashboardV2.js:1149
 msgid "POOL"
 msgstr "POOL"
 
 #: src/components/Glp/GlpSwap.js:1017
-#: src/pages/Dashboard/DashboardV2.js:1144
+#: src/pages/Dashboard/DashboardV2.js:1146
 msgid "PRICE"
 msgstr ""
 
@@ -1738,7 +1738,7 @@ msgstr "Partnerships and Integrations"
 msgid "Pay"
 msgstr ""
 
-#: src/pages/Dashboard/DashboardV2.js:786
+#: src/pages/Dashboard/DashboardV2.js:788
 msgid "Platform and GLP index tokens."
 msgstr "Platform and GLP index tokens."
 
@@ -1789,7 +1789,7 @@ msgstr "Preferred Network"
 #: src/components/Exchange/SwapBox.js:2040
 #: src/components/Exchange/SwapBox.js:2089
 #: src/components/Glp/GlpSwap.js:708
-#: src/pages/Dashboard/DashboardV2.js:972
+#: src/pages/Dashboard/DashboardV2.js:974
 #: src/pages/Stake/StakeV2.js:1466
 #: src/pages/Stake/StakeV2.js:1784
 #: src/pages/Stake/StakeV2.js:1929
@@ -1953,7 +1953,7 @@ msgstr "Referral code updated failed."
 msgid "Referral code updated!"
 msgstr "Referral code updated!"
 
-#: src/components/Header/AppHeaderLinks.tsx:121
+#: src/components/Header/AppHeaderLinks.tsx:126
 #: src/pages/Referrals/Referrals.js:123
 msgid "Referrals"
 msgstr ""
@@ -2092,7 +2092,7 @@ msgstr ""
 msgid "Sender has withdrawn all tokens from GMX Vesting Vault"
 msgstr ""
 
-#: src/components/Header/AppHeaderLinks.tsx:155
+#: src/components/Header/AppHeaderLinks.tsx:160
 #: src/components/NetworkDropdown/NetworkDropdown.js:146
 msgid "Settings"
 msgstr ""
@@ -2112,8 +2112,8 @@ msgstr ""
 msgid "Short"
 msgstr ""
 
-#: src/pages/Dashboard/DashboardV2.js:671
-#: src/pages/Dashboard/DashboardV2.js:680
+#: src/pages/Dashboard/DashboardV2.js:673
+#: src/pages/Dashboard/DashboardV2.js:682
 msgid "Short Positions"
 msgstr "Short Positions"
 
@@ -2144,7 +2144,7 @@ msgstr ""
 msgid "Speed up page loading"
 msgstr "Speed up page loading"
 
-#: src/pages/Dashboard/DashboardV2.js:1054
+#: src/pages/Dashboard/DashboardV2.js:1056
 msgid "Stablecoin Percentage"
 msgstr "Stablecoin Percentage"
 
@@ -2194,11 +2194,11 @@ msgstr "Stake failed."
 msgid "Stake submitted!"
 msgstr "Stake submitted!"
 
-#: src/pages/Dashboard/DashboardV2.js:861
-#: src/pages/Dashboard/DashboardV2.js:882
-#: src/pages/Dashboard/DashboardV2.js:897
-#: src/pages/Dashboard/DashboardV2.js:1021
-#: src/pages/Dashboard/DashboardV2.js:1079
+#: src/pages/Dashboard/DashboardV2.js:863
+#: src/pages/Dashboard/DashboardV2.js:884
+#: src/pages/Dashboard/DashboardV2.js:899
+#: src/pages/Dashboard/DashboardV2.js:1023
+#: src/pages/Dashboard/DashboardV2.js:1081
 #: src/pages/Stake/StakeV2.js:1493
 #: src/pages/Stake/StakeV2.js:1801
 #: src/pages/Stake/StakeV2.js:1944
@@ -2214,7 +2214,7 @@ msgstr "Staked Tokens"
 msgid "Staking..."
 msgstr "Staking..."
 
-#: src/pages/Dashboard/DashboardV2.js:588
+#: src/pages/Dashboard/DashboardV2.js:590
 msgid "Statistics"
 msgstr "Statistics"
 
@@ -2227,8 +2227,8 @@ msgstr "Statistics"
 msgid "Submit"
 msgstr "Submit"
 
-#: src/pages/Dashboard/DashboardV2.js:833
-#: src/pages/Dashboard/DashboardV2.js:993
+#: src/pages/Dashboard/DashboardV2.js:835
+#: src/pages/Dashboard/DashboardV2.js:995
 msgid "Supply"
 msgstr "Supply"
 
@@ -2282,16 +2282,16 @@ msgstr "Swaps disabled, pending {0} upgrade"
 msgid "System Status"
 msgstr "System Status"
 
-#: src/pages/Dashboard/DashboardV2.js:959
+#: src/pages/Dashboard/DashboardV2.js:961
 msgid "TKN"
 msgstr "TKN"
 
 #: src/components/Glp/GlpSwap.js:1014
-#: src/pages/Dashboard/DashboardV2.js:1141
+#: src/pages/Dashboard/DashboardV2.js:1143
 msgid "TOKEN"
 msgstr ""
 
-#: src/pages/Dashboard/DashboardV2.js:956
+#: src/pages/Dashboard/DashboardV2.js:958
 msgid "TOKEN COIN"
 msgstr "TOKEN COIN"
 
@@ -2383,8 +2383,8 @@ msgstr ""
 msgid "Total"
 msgstr "Total"
 
-#: src/pages/Dashboard/DashboardV2.js:720
-#: src/pages/Dashboard/DashboardV2.js:729
+#: src/pages/Dashboard/DashboardV2.js:722
+#: src/pages/Dashboard/DashboardV2.js:731
 msgid "Total Fees"
 msgstr "Total Fees"
 
@@ -2398,15 +2398,15 @@ msgstr "Total Rebates"
 msgid "Total Rewards"
 msgstr "Total Rewards"
 
-#: src/pages/Dashboard/DashboardV2.js:852
-#: src/pages/Dashboard/DashboardV2.js:1012
+#: src/pages/Dashboard/DashboardV2.js:854
+#: src/pages/Dashboard/DashboardV2.js:1014
 #: src/pages/Stake/StakeV2.js:1629
 #: src/pages/Stake/StakeV2.js:1876
 #: src/pages/Stake/StakeV2.js:1992
 msgid "Total Staked"
 msgstr "Total Staked"
 
-#: src/pages/Dashboard/DashboardV2.js:714
+#: src/pages/Dashboard/DashboardV2.js:716
 msgid "Total Statistics"
 msgstr "Total Statistics"
 
@@ -2436,12 +2436,12 @@ msgid "Total Users"
 msgstr ""
 
 #: src/components/Referrals/AffiliatesStats.js:124
-#: src/pages/Dashboard/DashboardV2.js:740
-#: src/pages/Dashboard/DashboardV2.js:749
+#: src/pages/Dashboard/DashboardV2.js:742
+#: src/pages/Dashboard/DashboardV2.js:751
 msgid "Total Volume"
 msgstr "Total Volume"
 
-#: src/pages/Dashboard/DashboardV2.js:625
+#: src/pages/Dashboard/DashboardV2.js:627
 msgid "Total value of tokens in GLP pool ({chainName})"
 msgstr "Total value of tokens in GLP pool ({chainName})"
 
@@ -2558,7 +2558,7 @@ msgstr ""
 msgid "Type"
 msgstr "Type"
 
-#: src/pages/Dashboard/DashboardV2.js:1153
+#: src/pages/Dashboard/DashboardV2.js:1155
 msgid "UTILIZATION"
 msgstr "UTILIZATION"
 
@@ -2684,7 +2684,7 @@ msgstr ""
 msgid "View in Explorer"
 msgstr ""
 
-#: src/pages/Dashboard/DashboardV2.js:641
+#: src/pages/Dashboard/DashboardV2.js:643
 msgid "Volume"
 msgstr "Volume"
 
@@ -2708,7 +2708,7 @@ msgstr ""
 #~ msgid "WARNING: This position has a low amount of collateral after deducting borrowing fees, deposit more collateral to reduce the position's liquidation risk."
 #~ msgstr "WARNING: This position has a low amount of collateral after deducting borrowing fees, deposit more collateral to reduce the position's liquidation risk."
 
-#: src/pages/Dashboard/DashboardV2.js:1150
+#: src/pages/Dashboard/DashboardV2.js:1152
 msgid "WEIGHT"
 msgstr "WEIGHT"
 
@@ -2753,7 +2753,7 @@ msgstr "When closing the position, you can select which token you would like to 
 #: src/components/Exchange/PositionEditor.js:275
 #: src/components/Exchange/PositionEditor.js:460
 #: src/components/Exchange/PositionEditor.js:464
-#: src/components/Header/AppHeaderLinks.tsx:91
+#: src/components/Header/AppHeaderLinks.tsx:96
 #: src/pages/Stake/StakeV2.js:2174
 #: src/pages/Stake/StakeV2.js:2285
 msgid "Withdraw"
@@ -2905,9 +2905,9 @@ msgstr "to start using Crypto Miner"
 #~ msgid "to start using LeveragePro"
 #~ msgstr "to start using LeveragePro"
 
-#: src/components/Header/AppHeaderUser.tsx:149
-#: src/components/Header/AppHeaderUser.tsx:151
-#: src/components/Header/AppHeaderUser.tsx:235
+#: src/components/Header/AppHeaderUser.tsx:156
+#: src/components/Header/AppHeaderUser.tsx:158
+#: src/components/Header/AppHeaderUser.tsx:250
 #: src/components/Header/HeaderDropDown.tsx:58
 #: src/components/Header/HeaderDropDown.tsx:62
 #: src/components/Header/HeaderDropDown.tsx:78
@@ -2947,7 +2947,7 @@ msgstr ""
 msgid "{0} {1} not supported"
 msgstr "{0} {1} not supported"
 
-#: src/pages/Dashboard/DashboardV2.js:591
+#: src/pages/Dashboard/DashboardV2.js:593
 msgid "{chainName} Total Stats start from {totalStatsStartDate}.<0/> For detailed stats:"
 msgstr "{chainName} Total Stats start from {totalStatsStartDate}.<0/> For detailed stats:"
 
@@ -2955,7 +2955,7 @@ msgstr "{chainName} Total Stats start from {totalStatsStartDate}.<0/> For detail
 msgid "{nativeTokenSymbol} ({wrappedTokenSymbol}) APR"
 msgstr ""
 
-#: src/pages/Dashboard/DashboardV2.js:1121
+#: src/pages/Dashboard/DashboardV2.js:1123
 msgid "{stakedPercent}%"
 msgstr "{stakedPercent}%"
 

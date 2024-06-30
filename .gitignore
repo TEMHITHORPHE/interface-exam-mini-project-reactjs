@@ -10,7 +10,7 @@
 /coverage
 
 # production
-#/build
+/build
 
 # misc
 .DS_Store
@@ -34,3 +34,19 @@ package-lock.json
 /.idea/
 
 .env
+
+
+
+# Developer tools' files
+.lite_workspace.lua
+
+# Neutralinojs binaries and builds
+/bin
+/dist
+
+# Neutralinojs client (minified)
+neutralino.js
+
+# Neutralinojs related files
+.storage
+*.log

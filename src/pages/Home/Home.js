@@ -109,7 +109,7 @@ export default function Home({ showRedirectModal, redirectPopupTimestamp }) {
     },
   ];
 
-  const toggleFAQContent = function (index) {
+  const toggleFAQContent = (index) => {
     if (openedFAQIndex === index) {
       setOpenedFAQIndex(null);
     } else {
@@ -188,7 +188,7 @@ export default function Home({ showRedirectModal, redirectPopupTimestamp }) {
               <span>
                 <Trans>Are you new? Read our documentation</Trans>
               </span>
-              <HeaderLink className="home-document-btn" to="/document">
+              <HeaderLink className="home-document-btn" to="/document" >
                 <img src={HomeDocumentIcon} width={32} height={14}></img>
               </HeaderLink>
             </div>

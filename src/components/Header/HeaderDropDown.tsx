@@ -48,7 +48,7 @@ function HeaderDropDown({ redirectPopupTimestamp, showRedirectModal }: Props) {
             return (
               <Menu.Item key={index}>
                 <>
-                  {item.method == "external" ? (
+                  {item.method === "external" ? (
                     <ExternalLink href={item.link} className="header-asset-item">
                       <span className="header-asset-item-image-div">
                         <img className="header-asset-item-icon" src={item.img} alt={item.alt} />

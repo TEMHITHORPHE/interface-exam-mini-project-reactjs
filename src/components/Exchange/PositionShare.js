@@ -50,7 +50,7 @@ function PositionShare({ setIsPositionShareModalOpen, isPositionShareModalOpen, 
   );
 
   useEffect(() => {
-    (async function () {
+    (async () => {
       const element = positionRef.current;
       if (element && userAffiliateCode.success && sharePositionBgImg && positionToShare) {
         const image = await toJpeg(element, config);
@@ -103,11 +103,11 @@ function PositionShare({ setIsPositionShareModalOpen, isPositionShareModalOpen, 
       {uploadedImageError && <span className="error">{uploadedImageError}</span>}
 
       <div className="actions">
-        <button disabled={!uploadedImageInfo} className="mr-base App-button-option" onClick={handleCopy}>
+        <button type="button" disabled={!uploadedImageInfo} className="mr-base App-button-option" onClick={handleCopy}>
           <BiCopy className="icon" />
           <Trans>Copy</Trans>
         </button>
-        <button className="mr-base App-button-option" onClick={handleDownload}>
+        <button type="button" className="mr-base App-button-option" onClick={handleDownload}>
           <RiFileDownloadLine className="icon" />
           <Trans>Download</Trans>
         </button>

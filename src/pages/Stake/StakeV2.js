@@ -1471,7 +1471,7 @@ export default function StakeV2({ setPendingTxns, connectWallet }) {
                       <Tooltip
                         position="right-bottom"
                         className="nowrap"
-                        handle={"$" + formatAmount(leveragePrice, USD_DECIMALS, 2, true)}
+                        handle={`$${formatAmount(leveragePrice, USD_DECIMALS, 2, true)}`}
                         renderContent={() => (
                           <>Price on Binance: ${formatAmount(leveragePrice, USD_DECIMALS, 2, true)}</>
                         )}

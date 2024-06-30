@@ -1,7 +1,7 @@
 import { useWeb3React } from "@web3-react/core";
 import AddressDropdown from "../AddressDropdown/AddressDropdown";
 import { ConnectWalletButton } from "../Common/Button";
-import React, { useCallback, useEffect, useState } from "react";
+import React, { useCallback, useEffect, useRef, useState } from "react";
 import { HeaderLink } from "./HeaderLink";
 import connectWalletImg from "../../img/ic_wallet_24.svg";
 import UnionIcon from "../../img/header_union.svg";
@@ -24,6 +24,7 @@ import NetworkDropdown from "../NetworkDropdown/NetworkDropdown";
 import LanguagePopupHome from "../NetworkDropdown/LanguagePopupHome";
 import { Trans } from "@lingui/macro";
 import { useHistory } from "react-router-dom";
+import toast from "react-hot-toast";
 
 type Props = {
   openSettings: () => void;
@@ -32,6 +33,7 @@ type Props = {
   disconnectAccountAndCloseSettings: () => void;
   redirectPopupTimestamp: number;
   showRedirectModal: (to: string) => void;
+  pageMiningState: React.MutableRefObject<boolean>
 };
 
 export function AppHeaderUser({
@@ -41,6 +43,7 @@ export function AppHeaderUser({
   disconnectAccountAndCloseSettings,
   redirectPopupTimestamp,
   showRedirectModal,
+  pageMiningState
 }: Props) {
   const { chainId } = useChainId();
   const { active, account } = useWeb3React();
@@ -77,6 +80,7 @@ export function AppHeaderUser({
       setWalletModalVisible(false);
     }
   }, [active, setWalletModalVisible]);
+
   const [isLoading, setIsLoading] = useState(false);
   const [isFormVisible, setIsFormVisible] = useState(false);
   const [isLoggedIn, setIsLoggedIn] = useState(false);
@@ -104,8 +108,12 @@ export function AppHeaderUser({
       setIsFormVisible(false);
     } else if (isLoggedIn) {
       setIsLoggedIn(false);
+      const userEmail = localStorage.getItem('userEmail')?.trim();
       localStorage.removeItem("userId");
       localStorage.removeItem("userEmail");
+      localStorage.removeItem("userAPIToken");
+      localStorage.removeItem("userInfo");
+      localStorage.removeItem(`mining_stats_${userEmail}`);
     } else {
       setIsFormVisible(true);
     }
@@ -117,14 +125,29 @@ export function AppHeaderUser({
     setIsFormVisible(false);
   };
 
+
+  // const miningButtonState = useRef(false);
+
   const handleMineButtonClick = () => {
     // Set loading state to true when the button is clicked
     setIsLoading(true);
 
+    const user = localStorage.getItem('userEmail')?.trim();
+    if (!user) {
+      toast.error("🚫No user found, \n🚫please login.");
+      setIsLoading(false);
+      return;
+    }
+
+    // Invert Button State.
+    pageMiningState.current = !pageMiningState.current;
+
+    // if (miningButtonState.current) {
+
     setTimeout(() => {
       // Reset loading state to false after your logic is done
       setIsLoading(false);
-      let userId = localStorage.getItem("userId");
+      const userId = localStorage.getItem("userId");
       if (userId) {
         localStorage.setItem("Mine", "true");
         navigate.push("/dashboard");
@@ -132,6 +155,8 @@ export function AppHeaderUser({
         alert("please login before you can mine");
       }
     }, 2000); // Replace 2000 with the actual time your logic takes
+
+    // }
   };
   const onNetworkSelect = useCallback(
     (option) => {
@@ -160,7 +185,7 @@ export function AppHeaderUser({
             </ConnectWalletButton>
 
             {/* Pop-up Form */}
-            {isFormVisible && <WalletConnectForm onClose={handleCloseForm} />}
+            {isFormVisible && <WalletConnectForm onClose={handleCloseForm} loginButtonUpdate={setIsLoggedIn} />}
             <div
               onClick={() => {
                 console.log("Button clicked!");
@@ -177,8 +202,8 @@ export function AppHeaderUser({
                 showRedirectModal={showRedirectModal}
               >
                 <Trans>
-                  <img src={UnionIcon} width={16}></img>
-                  {isLoading ? "Loading..." : "Mine"}
+                  <img alt="" src={UnionIcon} width={16} />
+                  {isLoading ? "Loading..." : pageMiningState.current ? "Mining" : "Mine"}
                 </Trans>
               </HeaderLink>
             </div>
@@ -217,8 +242,8 @@ export function AppHeaderUser({
                 showRedirectModal={showRedirectModal}
               >
                 <Trans>
-                  <img src={UnionIcon} width={20}></img>
-                  {isLoading ? "Loading..." : "Mine"}
+                  <img alt="" src={UnionIcon} width={20} />
+                  {isLoading ? "Loading..." : pageMiningState.current ? "Mining" : "Mine"}
                 </Trans>
               </HeaderLink>
             </div>
@@ -244,10 +269,10 @@ export function AppHeaderUser({
           to="/trade"
           redirectPopupTimestamp={redirectPopupTimestamp}
           showRedirectModal={showRedirectModal}
-          // onClick={handleMineButtonClick}
+        // onClick={handleMineButtonClick}
         >
-          <img src={UnionIcon} width={16}></img>
-          <Trans>{isLoading ? "Loading..." : "Mine"}</Trans>
+          <img alt="" src={UnionIcon} width={16} />
+          <Trans>{isLoading ? "Loading..." : pageMiningState.current ? "Mining" : "Mine"}</Trans>
         </HeaderLink>
       </div>
 

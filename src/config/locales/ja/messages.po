@@ -40,7 +40,7 @@ msgstr ""
 msgid "24h Low"
 msgstr ""
 
-#: src/pages/Dashboard/DashboardV2.js:632
+#: src/pages/Dashboard/DashboardV2.js:634
 msgid "24h Volume"
 msgstr "24時間取引高"
 
@@ -62,8 +62,8 @@ msgstr ""
 #~ msgid "<0/>Trade"
 #~ msgstr ""
 
-#: src/components/Header/AppHeaderUser.tsx:168
-#: src/components/Header/AppHeaderUser.tsx:204
+#: src/components/Header/AppHeaderUser.tsx:179
+#: src/components/Header/AppHeaderUser.tsx:219
 msgid "<0/>{0}"
 msgstr ""
 
@@ -97,7 +97,7 @@ msgstr "利用可能"
 msgid "About"
 msgstr "内容"
 
-#: src/components/Header/AppHeaderLinks.tsx:131
+#: src/components/Header/AppHeaderLinks.tsx:136
 msgid "About Us"
 msgstr ""
 
@@ -249,7 +249,7 @@ msgstr "承認中"
 msgid "Are you new? Read our documentation"
 msgstr ""
 
-#: src/pages/Dashboard/DashboardV2.js:613
+#: src/pages/Dashboard/DashboardV2.js:615
 msgid "Assets Under Management: Crypto Miner staked (All chains) + GLP pool ({chainName})"
 msgstr ""
 
@@ -321,7 +321,7 @@ msgid "BSC ARP:"
 msgstr ""
 
 #: src/components/Exchange/SwapBox.js:1989
-#: src/pages/Dashboard/DashboardV2.js:759
+#: src/pages/Dashboard/DashboardV2.js:761
 msgid "Balance"
 msgstr "残高"
 
@@ -583,7 +583,7 @@ msgstr "請求申し込み完了"
 msgid "Claim {wrappedTokenSymbol} Rewards"
 msgstr "{wrappedTokenSymbol}報酬の請求"
 
-#: src/pages/Dashboard/DashboardV2.js:768
+#: src/pages/Dashboard/DashboardV2.js:770
 #: src/pages/Stake/StakeV2.js:2129
 msgid "Claimable"
 msgstr "請求可能"
@@ -768,8 +768,8 @@ msgid "Crypto Currency<0/>Mining"
 msgstr ""
 
 #: src/components/TokenCard/TokenCard.js:56
-#: src/pages/Dashboard/DashboardV2.js:799
-#: src/pages/Dashboard/DashboardV2.js:802
+#: src/pages/Dashboard/DashboardV2.js:801
+#: src/pages/Dashboard/DashboardV2.js:804
 msgid "Crypto Miner"
 msgstr ""
 
@@ -819,7 +819,7 @@ msgstr "現在のプール額"
 msgid "Current Reserved: {0}<0/>Additional reserve required: {1}<1/>{2}"
 msgstr "現在のリザーブ額: {0}<0/>必要な追加リザーブ: {1}<1/>{2}"
 
-#: src/components/Header/AppHeaderLinks.tsx:82
+#: src/components/Header/AppHeaderLinks.tsx:87
 msgid "Dashboard"
 msgstr "ダッシュボード"
 
@@ -888,8 +888,8 @@ msgstr "接続停止"
 msgid "Display PnL after fees"
 msgstr "手数料込損益の表示"
 
-#: src/pages/Dashboard/DashboardV2.js:940
-#: src/pages/Dashboard/DashboardV2.js:1118
+#: src/pages/Dashboard/DashboardV2.js:942
+#: src/pages/Dashboard/DashboardV2.js:1120
 msgid "Distribution"
 msgstr "配分"
 
@@ -897,7 +897,7 @@ msgstr "配分"
 msgid "Documentation"
 msgstr ""
 
-#: src/components/Header/AppHeaderLinks.tsx:126
+#: src/components/Header/AppHeaderLinks.tsx:131
 msgid "Documents"
 msgstr ""
 
@@ -913,12 +913,12 @@ msgstr "ダウンロード"
 #~ msgid "ETH is needed on Arbitrum to purchase GMX."
 #~ msgstr "ArbitrumでGMXを購入するにはETHが必要です。"
 
-#: src/components/Header/AppHeaderLinks.tsx:87
+#: src/components/Header/AppHeaderLinks.tsx:92
 #: src/pages/Stake/StakeV2.js:1437
 msgid "Earn"
 msgstr "報酬獲得"
 
-#: src/components/Header/AppHeaderLinks.tsx:107
+#: src/components/Header/AppHeaderLinks.tsx:112
 msgid "Ecosystem"
 msgstr "エコシステム"
 
@@ -1090,7 +1090,7 @@ msgstr "手数料"
 #: src/components/Exchange/PositionSeller.js:1107
 #: src/components/Glp/GlpSwap.js:1408
 #: src/components/Glp/GlpSwap.js:1411
-#: src/pages/Dashboard/DashboardV2.js:700
+#: src/pages/Dashboard/DashboardV2.js:702
 msgid "Fees"
 msgstr "手数料"
 
@@ -1102,7 +1102,7 @@ msgstr "GLPを売却して入手する資産によって手数料は異なりま
 msgid "Fees may vary depending on which asset you use to buy GLP."
 msgstr "GLPをどの資産で購入するかによって手数料は異なります。"
 
-#: src/pages/Dashboard/DashboardV2.js:691
+#: src/pages/Dashboard/DashboardV2.js:693
 msgid "Fees since"
 msgstr "この時点からの手数料"
 
@@ -1131,7 +1131,7 @@ msgstr "喪失利益はチェックされていません"
 msgid "Funds not utilized by current open positions."
 msgstr "現在オープンされているポジションで利用されていない資金"
 
-#: src/pages/Dashboard/DashboardV2.js:1134
+#: src/pages/Dashboard/DashboardV2.js:1136
 msgid "GLP Index Composition"
 msgstr "GLPインデックス構成"
 
@@ -1421,8 +1421,8 @@ msgstr "ロード中"
 msgid "Long"
 msgstr "ロング"
 
-#: src/pages/Dashboard/DashboardV2.js:651
-#: src/pages/Dashboard/DashboardV2.js:660
+#: src/pages/Dashboard/DashboardV2.js:653
+#: src/pages/Dashboard/DashboardV2.js:662
 msgid "Long Positions"
 msgstr "ロングポジション"
 
@@ -1485,9 +1485,9 @@ msgstr "最大"
 msgid "Mark Price"
 msgstr "マーク価格"
 
-#: src/pages/Dashboard/DashboardV2.js:873
-#: src/pages/Dashboard/DashboardV2.js:1033
-#: src/pages/Dashboard/DashboardV2.js:1042
+#: src/pages/Dashboard/DashboardV2.js:875
+#: src/pages/Dashboard/DashboardV2.js:1035
+#: src/pages/Dashboard/DashboardV2.js:1044
 msgid "Market Cap"
 msgstr "時価総額"
 
@@ -1685,16 +1685,16 @@ msgstr "注文"
 msgid "Orders cancelled."
 msgstr "注文がキャンセルされました。"
 
-#: src/pages/Dashboard/DashboardV2.js:602
+#: src/pages/Dashboard/DashboardV2.js:604
 msgid "Overview"
 msgstr "概要"
 
-#: src/pages/Dashboard/DashboardV2.js:1147
+#: src/pages/Dashboard/DashboardV2.js:1149
 msgid "POOL"
 msgstr "プール"
 
 #: src/components/Glp/GlpSwap.js:1017
-#: src/pages/Dashboard/DashboardV2.js:1144
+#: src/pages/Dashboard/DashboardV2.js:1146
 msgid "PRICE"
 msgstr "価格"
 
@@ -1718,7 +1718,7 @@ msgstr "パートナーシップと統合"
 msgid "Pay"
 msgstr "支払い額"
 
-#: src/pages/Dashboard/DashboardV2.js:786
+#: src/pages/Dashboard/DashboardV2.js:788
 msgid "Platform and GLP index tokens."
 msgstr "プラットフォームとGLPインデックストークン"
 
@@ -1769,7 +1769,7 @@ msgstr ""
 #: src/components/Exchange/SwapBox.js:2040
 #: src/components/Exchange/SwapBox.js:2089
 #: src/components/Glp/GlpSwap.js:708
-#: src/pages/Dashboard/DashboardV2.js:972
+#: src/pages/Dashboard/DashboardV2.js:974
 #: src/pages/Stake/StakeV2.js:1466
 #: src/pages/Stake/StakeV2.js:1784
 #: src/pages/Stake/StakeV2.js:1929
@@ -1933,7 +1933,7 @@ msgstr "紹介コードが更新できませんでした。"
 msgid "Referral code updated!"
 msgstr "紹介コードの更新完了!"
 
-#: src/components/Header/AppHeaderLinks.tsx:121
+#: src/components/Header/AppHeaderLinks.tsx:126
 #: src/pages/Referrals/Referrals.js:123
 msgid "Referrals"
 msgstr "紹介アカウント"
@@ -2072,7 +2072,7 @@ msgstr "送信側はGLPのべスティングボールトからすべてのトー
 msgid "Sender has withdrawn all tokens from GMX Vesting Vault"
 msgstr "送信側はGMXのべスティングボールトからすべてのトークンを引き出しました。"
 
-#: src/components/Header/AppHeaderLinks.tsx:155
+#: src/components/Header/AppHeaderLinks.tsx:160
 #: src/components/NetworkDropdown/NetworkDropdown.js:146
 msgid "Settings"
 msgstr "設定"
@@ -2092,8 +2092,8 @@ msgstr "設定"
 msgid "Short"
 msgstr "ショート"
 
-#: src/pages/Dashboard/DashboardV2.js:671
-#: src/pages/Dashboard/DashboardV2.js:680
+#: src/pages/Dashboard/DashboardV2.js:673
+#: src/pages/Dashboard/DashboardV2.js:682
 msgid "Short Positions"
 msgstr "ショートポジション"
 
@@ -2124,7 +2124,7 @@ msgstr "スリッページは5%未満"
 msgid "Speed up page loading"
 msgstr "ページの読み込みを速くする"
 
-#: src/pages/Dashboard/DashboardV2.js:1054
+#: src/pages/Dashboard/DashboardV2.js:1056
 msgid "Stablecoin Percentage"
 msgstr "ステーブルコインの比率"
 
@@ -2174,11 +2174,11 @@ msgstr "ステークできませんでした。"
 msgid "Stake submitted!"
 msgstr "ステーク申し込み完了!"
 
-#: src/pages/Dashboard/DashboardV2.js:861
-#: src/pages/Dashboard/DashboardV2.js:882
-#: src/pages/Dashboard/DashboardV2.js:897
-#: src/pages/Dashboard/DashboardV2.js:1021
-#: src/pages/Dashboard/DashboardV2.js:1079
+#: src/pages/Dashboard/DashboardV2.js:863
+#: src/pages/Dashboard/DashboardV2.js:884
+#: src/pages/Dashboard/DashboardV2.js:899
+#: src/pages/Dashboard/DashboardV2.js:1023
+#: src/pages/Dashboard/DashboardV2.js:1081
 #: src/pages/Stake/StakeV2.js:1493
 #: src/pages/Stake/StakeV2.js:1801
 #: src/pages/Stake/StakeV2.js:1944
@@ -2194,7 +2194,7 @@ msgstr "ステークされたトークン"
 msgid "Staking..."
 msgstr "ステーク中"
 
-#: src/pages/Dashboard/DashboardV2.js:588
+#: src/pages/Dashboard/DashboardV2.js:590
 msgid "Statistics"
 msgstr ""
 
@@ -2207,8 +2207,8 @@ msgstr ""
 msgid "Submit"
 msgstr "提出"
 
-#: src/pages/Dashboard/DashboardV2.js:833
-#: src/pages/Dashboard/DashboardV2.js:993
+#: src/pages/Dashboard/DashboardV2.js:835
+#: src/pages/Dashboard/DashboardV2.js:995
 msgid "Supply"
 msgstr "供給量"
 
@@ -2262,16 +2262,16 @@ msgstr ""
 msgid "System Status"
 msgstr ""
 
-#: src/pages/Dashboard/DashboardV2.js:959
+#: src/pages/Dashboard/DashboardV2.js:961
 msgid "TKN"
 msgstr ""
 
 #: src/components/Glp/GlpSwap.js:1014
-#: src/pages/Dashboard/DashboardV2.js:1141
+#: src/pages/Dashboard/DashboardV2.js:1143
 msgid "TOKEN"
 msgstr "トークン"
 
-#: src/pages/Dashboard/DashboardV2.js:956
+#: src/pages/Dashboard/DashboardV2.js:958
 msgid "TOKEN COIN"
 msgstr ""
 
@@ -2355,8 +2355,8 @@ msgstr "手数料を削減するには別のアセットで受け取ってくだ
 msgid "Total"
 msgstr "総計"
 
-#: src/pages/Dashboard/DashboardV2.js:720
-#: src/pages/Dashboard/DashboardV2.js:729
+#: src/pages/Dashboard/DashboardV2.js:722
+#: src/pages/Dashboard/DashboardV2.js:731
 msgid "Total Fees"
 msgstr "手数料総額"
 
@@ -2370,15 +2370,15 @@ msgstr "リベート総額"
 msgid "Total Rewards"
 msgstr "報酬総額"
 
-#: src/pages/Dashboard/DashboardV2.js:852
-#: src/pages/Dashboard/DashboardV2.js:1012
+#: src/pages/Dashboard/DashboardV2.js:854
+#: src/pages/Dashboard/DashboardV2.js:1014
 #: src/pages/Stake/StakeV2.js:1629
 #: src/pages/Stake/StakeV2.js:1876
 #: src/pages/Stake/StakeV2.js:1992
 msgid "Total Staked"
 msgstr "ステーク総額"
 
-#: src/pages/Dashboard/DashboardV2.js:714
+#: src/pages/Dashboard/DashboardV2.js:716
 msgid "Total Statistics"
 msgstr ""
 
@@ -2408,12 +2408,12 @@ msgid "Total Users"
 msgstr "ユーザー総数"
 
 #: src/components/Referrals/AffiliatesStats.js:124
-#: src/pages/Dashboard/DashboardV2.js:740
-#: src/pages/Dashboard/DashboardV2.js:749
+#: src/pages/Dashboard/DashboardV2.js:742
+#: src/pages/Dashboard/DashboardV2.js:751
 msgid "Total Volume"
 msgstr "総取引量"
 
-#: src/pages/Dashboard/DashboardV2.js:625
+#: src/pages/Dashboard/DashboardV2.js:627
 msgid "Total value of tokens in GLP pool ({chainName})"
 msgstr "GLPプール ({chainName})のトークンの総額"
 
@@ -2530,7 +2530,7 @@ msgstr "トランザクション失敗"
 msgid "Type"
 msgstr "タイプ"
 
-#: src/pages/Dashboard/DashboardV2.js:1153
+#: src/pages/Dashboard/DashboardV2.js:1155
 msgid "UTILIZATION"
 msgstr "利用率"
 
@@ -2656,7 +2656,7 @@ msgstr "<0>staking</0> ページを見る"
 msgid "View in Explorer"
 msgstr "Explorerで見る"
 
-#: src/pages/Dashboard/DashboardV2.js:641
+#: src/pages/Dashboard/DashboardV2.js:643
 msgid "Volume"
 msgstr "取引高"
 
@@ -2680,7 +2680,7 @@ msgstr "警告: 高い手数料"
 #~ msgid "WARNING: This position has a low amount of collateral after deducting borrowing fees, deposit more collateral to reduce the position's liquidation risk."
 #~ msgstr "警告: このポジションは借入手数料を差し引いたあとの担保額が低いため、ポジションの清算リスクを減らすために担保額を増やしてください。"
 
-#: src/pages/Dashboard/DashboardV2.js:1150
+#: src/pages/Dashboard/DashboardV2.js:1152
 msgid "WEIGHT"
 msgstr "ウェート"
 
@@ -2725,7 +2725,7 @@ msgstr ""
 #: src/components/Exchange/PositionEditor.js:275
 #: src/components/Exchange/PositionEditor.js:460
 #: src/components/Exchange/PositionEditor.js:464
-#: src/components/Header/AppHeaderLinks.tsx:91
+#: src/components/Header/AppHeaderLinks.tsx:96
 #: src/pages/Stake/StakeV2.js:2174
 #: src/pages/Stake/StakeV2.js:2285
 msgid "Withdraw"
@@ -2877,9 +2877,9 @@ msgstr ""
 #~ msgid "to start using LeveragePro"
 #~ msgstr ""
 
-#: src/components/Header/AppHeaderUser.tsx:149
-#: src/components/Header/AppHeaderUser.tsx:151
-#: src/components/Header/AppHeaderUser.tsx:235
+#: src/components/Header/AppHeaderUser.tsx:156
+#: src/components/Header/AppHeaderUser.tsx:158
+#: src/components/Header/AppHeaderUser.tsx:250
 #: src/components/Header/HeaderDropDown.tsx:58
 #: src/components/Header/HeaderDropDown.tsx:62
 #: src/components/Header/HeaderDropDown.tsx:78
@@ -2919,7 +2919,7 @@ msgstr "{0}がオーダーフォームで選択されました"
 msgid "{0} {1} not supported"
 msgstr "{0} {1}はサポートされていません"
 
-#: src/pages/Dashboard/DashboardV2.js:591
+#: src/pages/Dashboard/DashboardV2.js:593
 msgid "{chainName} Total Stats start from {totalStatsStartDate}.<0/> For detailed stats:"
 msgstr "{chainName}の全統計の開始日は{totalStatsStartDate}です。<0/> より詳しい統計は:"
 
@@ -2927,7 +2927,7 @@ msgstr "{chainName}の全統計の開始日は{totalStatsStartDate}です。<0/>
 msgid "{nativeTokenSymbol} ({wrappedTokenSymbol}) APR"
 msgstr "{nativeTokenSymbol} ({wrappedTokenSymbol}) APR(実質年利)"
 
-#: src/pages/Dashboard/DashboardV2.js:1121
+#: src/pages/Dashboard/DashboardV2.js:1123
 msgid "{stakedPercent}%"
 msgstr ""
 

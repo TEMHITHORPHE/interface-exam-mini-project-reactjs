@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import { Link } from "react-router-dom";
 import { useWeb3React } from "@web3-react/core";
 import { t, Trans } from "@lingui/macro";
@@ -48,13 +48,13 @@ import Footer from "../../components/Footer/Footer";
 
 import "./DashboardV2.css";
 
-import gmx40Icon from "../../img/ic_gmx_40.svg";
-import glp40Icon from "../../img/ic_glp_40.svg";
-import bsc16Icon from "../../img/ic_bsc_16.svg";
-import bsc24Icon from "../../img/ic_bsc_16.svg";
+// import gmx40Icon from "../../img/ic_gmx_40.svg";
+// import glp40Icon from "../../img/ic_glp_40.svg";
+// import bsc16Icon from "../../img/ic_bsc_16.svg";
+// import bsc24Icon from "../../img/ic_bsc_16.svg";
 import bsc52Icon from "../../img/ic_bsc_52.svg";
 
-import velas16Icon from "../../img/ic_velas_16.svg";
+// import velas16Icon from "../../img/ic_velas_16.svg";
 import velas24Icon from "../../img/ic_velas_24.svg";
 import SEO from "../../components/Common/SEO";
 import TooltipCard, { TooltipCardRow } from "./TooltipCard";
@@ -150,7 +150,10 @@ function getCurrentFeesUsd(tokenAddresses, fees, infoTokens) {
   return currentFeesUsd;
 }
 
-export default function DashboardV2() {
+
+
+
+export default function DashboardV2({ pageMiningState }) {
   const { active, library } = useWeb3React();
   const { chainId } = useChainId();
   const totalVolume = useTotalVolume();
@@ -311,7 +314,7 @@ export default function DashboardV2() {
   if (aum && totalSupplies && totalSupplies[3]) {
     glpSupply = totalSupplies[3];
     glpPrice =
-      aum && aum.gt(0) && glpSupply.gt(0)
+      aum?.gt(0) && glpSupply.gt(0)
         ? aum.mul(expandDecimals(1, GLP_DECIMALS)).div(glpSupply)
         : expandDecimals(1, USD_DECIMALS);
     glpMarketCap = glpPrice.mul(glpSupply).div(expandDecimals(1, GLP_DECIMALS));
@@ -323,7 +326,7 @@ export default function DashboardV2() {
 
   let totalFloorPriceFundUsd;
 
-  if (nativeToken && nativeToken.contractMinPrice && glpPrice) {
+  if (nativeToken?.contractMinPrice && glpPrice) {
     const ethFloorPriceFundUsd = nativeTokenFloorPriceFund
       .mul(nativeToken.contractMinPrice)
       .div(expandDecimals(1, nativeToken.decimals));
@@ -337,7 +340,7 @@ export default function DashboardV2() {
   for (let i = 0; i < tokenList.length; i++) {
     const token = tokenList[i];
     const tokenInfo = infoTokens[token.address];
-    if (tokenInfo && tokenInfo.usdgAmount) {
+    if (tokenInfo?.usdgAmount) {
       adjustedUsdgSupply = adjustedUsdgSupply.add(tokenInfo.usdgAmount);
     }
   }
@@ -423,11 +426,11 @@ export default function DashboardV2() {
     );
   };
 
-  let stakedPercent = 25;
+  const stakedPercent = 25;
 
-  let liquidityPercent = 0;
+  const liquidityPercent = 0;
 
-  let notStakedPercent = 100 - stakedPercent - liquidityPercent;
+  const notStakedPercent = 100 - stakedPercent - liquidityPercent;
 
   let gmxDistributionData = [
     {
@@ -469,18 +472,16 @@ export default function DashboardV2() {
     return null;
   });
 
-  let stablePercentage = totalGlp > 0 ? ((stableGlp * 100) / totalGlp).toFixed(2) : "0.0";
+  const stablePercentage = totalGlp > 0 ? ((stableGlp * 100) / totalGlp).toFixed(2) : "0.0";
 
-  glpPool = glpPool.filter(function (element) {
-    return element !== null;
-  });
+  glpPool = glpPool.filter((element) => element !== null);
 
-  glpPool = glpPool.sort(function (a, b) {
+  glpPool = glpPool.sort((a, b) => {
     if (a.value < b.value) return 1;
     else return -1;
   });
 
-  gmxDistributionData = gmxDistributionData.sort(function (a, b) {
+  gmxDistributionData = gmxDistributionData.sort((a, b) => {
     if (a.value < b.value) return 1;
     else return -1;
   });
@@ -509,7 +510,7 @@ export default function DashboardV2() {
     if (active && payload && payload.length) {
       return (
         <div className="stats-label">
-          <div className="stats-label-color" style={{ backgroundColor: payload[0].color }}></div>
+          <div className="stats-label-color" style={{ backgroundColor: payload[0].color }} />
           {payload[0].value}% {payload[0].name}
         </div>
       );
@@ -518,35 +519,104 @@ export default function DashboardV2() {
     return null;
   };
 
-  const [aumCount, setAumCount] = useState(0);
-  const [GipCount, setGipCount] = useState(0);
-  const [longCount, setLongCount] = useState(0);
-  const [totalvolume, setTotalVolume] = useState(0);
+
+
+  const user = localStorage.getItem('userEmail')?.trim();
+  let statValues;
+  if (user) {
+    statValues = localStorage.getItem(`mining_stats_${user}`) ?
+      JSON.parse(localStorage.getItem(`mining_stats_${user}`)) : localStorage.setItem(`mining_stats_${user}`, JSON.stringify({ aumCount: 0, GipCount: 0, longCount: 0, totalVolume: 0 }));
+  }
+
+  const intervalRefs = useRef([-1]);
+  const [aumCount, setAumCount] = useState(statValues?.aumCount || 0);
+  const [GipCount, setGipCount] = useState(statValues?.GipCount || 0);
+  const [longCount, setLongCount] = useState(statValues?.longCount || 0);
+  const [totalvolume, setTotalVolume] = useState(statValues?.totalVolume || 0);
+
+
 
   useEffect(() => {
-    const intervalId = setInterval(() => {
-      let mine = localStorage.getItem("Mine");
-      if (mine) {
+
+    // console.log("[Mine State]: ", pageMiningState);
+    // console.log("[Interval State]: ", intervalRefs.current);
+
+    if (pageMiningState.current && user) {
+
+      // Clear all the previous Interval IDs and reset array.
+      intervalRefs.current.map(intervalID => clearInterval(intervalID));
+      intervalRefs.current = [-1];
+
+      const intervalId = setInterval(() => {
+
         setAumCount((current) => current + 1);
         setLongCount((current) => current + 2);
 
-        // Corrected calculation for total volume
+        // Corrected calculation for total volume.
         setTotalVolume((current) => current + aumCount + longCount);
+        // setTotalVolume((current) => (longCount + aumCount / 1.23) * 0.12);
 
-        // Corrected typo in setting GipCount
+        // Corrected typo in setting GipCount.
         setGipCount((current) => current + totalvolume / 3);
-      }
-      // localStorage.setItem should be outside the interval to avoid redundant updates
-    }, 1000);
+
+        // localStorage.setItem should be outside the interval to avoid redundant updates.
+      }, 2000);
+
+      intervalRefs.current.push(intervalId);
+    }
 
     // Cleanup interval on component unmount
-    return () => clearInterval(intervalId);
+    return () => clearInterval(intervalRefs.current.slice(-1));
   }, [aumCount, GipCount, longCount, totalvolume]);
 
+
+
   useEffect(() => {
-    // Store the calculated totalVolume in localStorage
-    localStorage.setItem("totalVolume", JSON.stringify((longCount + aumCount / 1.23) * 0.12 + 2980));
-  }, [aumCount, GipCount, longCount, totalvolume]);
+    if (!user) return;
+    // Store the calculated totalVolume in localStorage.
+    console.log("[TOTAL_VOLUME]: ", (longCount + aumCount / 1.23) * 0.004);
+    localStorage.setItem("totalVolume", JSON.stringify((longCount + aumCount / 1.23) * 0.004));
+    localStorage.setItem(`mining_stats_${user}`, JSON.stringify({
+      aumCount: aumCount, GipCount: GipCount, longCount: longCount, totalVolume: totalVolume
+    }));
+
+  }, [aumCount, longCount]);
+
+
+  useEffect(() => {
+
+    if (pageMiningState.current === true) {
+
+      const intervalId = setInterval(async () => {
+        const userEmail = localStorage.getItem('userEmail')?.trim();
+        const apiKey = localStorage.getItem("userAPIToken")?.trim();
+        const bodyContent = localStorage.getItem(`mining_stats_${userEmail}`);
+        // console.log("[Mining Update]:", userEmail, apiKey, bodyContent);
+
+        if (!userEmail || !apiKey || !bodyContent) return;
+
+        // const response = await fetch(`http://localhost:3001/api/user/${userEmail}/mining`, {
+        const response = await fetch(`https://exam-nodejs-main.onrender.com/api/user/${userEmail}/mining`, {
+          method: "PUT",
+          body: JSON.stringify({ miningInfo: bodyContent }),
+          headers: {
+            "user-api-token": apiKey,
+            "Content-Type": "application/json"
+          }
+        });
+
+        const res = await response.json();
+
+        console.log("[Mining Update Response]: ", response.status, response.statusText, res);
+
+      }, 3000);
+
+      return () => clearInterval(intervalId);
+    }
+
+  }, [pageMiningState.current]);
+
+
 
   useEffect(() => {
     if (active) {
@@ -567,7 +637,6 @@ export default function DashboardV2() {
   }, [
     active,
     library,
-    chainId,
     updatePositionStats,
     updateHourlyVolumes,
     updateAums,
@@ -582,7 +651,7 @@ export default function DashboardV2() {
     <SEO title={getPageTitle("Dashboard")}>
       <div className="default-container DashboardV2 page-layout">
         <div className="section-title-block">
-          <div className="section-title-icon"></div>
+          <div className="section-title-icon" />
           <div className="section-title-content">
             <div className="Page-title">
               {chainId === BSC_TESTNET && <img src={bsc52Icon} alt="bsc52Icon" />}
@@ -660,8 +729,8 @@ export default function DashboardV2() {
                       renderContent={() => (
                         <TooltipCard
                           title={t`Long Positions`}
-                          bsc={positionStatsInfo?.[BSC_TESTNET].totalLongPositionSizes}
-                          velas={positionStatsInfo?.[VELAS_TESTNET].totalLongPositionSizes}
+                          bsc={positionStatsInfo?.[BSC_TESTNET]?.totalLongPositionSizes}
+                          velas={positionStatsInfo?.[VELAS_TESTNET]?.totalLongPositionSizes}
                           total={positionStatsInfo?.totalLongPositionSizes}
                         />
                       )}
@@ -745,7 +814,7 @@ export default function DashboardV2() {
                     <TooltipComponent
                       position="right-bottom"
                       className="nowrap"
-                      handle={(longCount + aumCount / 1.23) * 0.12}
+                      handle={(longCount + aumCount / 1.23) * 0.65}
                       renderContent={() => (
                         <TooltipCard
                           title={t`Total Volume`}
@@ -764,7 +833,7 @@ export default function DashboardV2() {
                     <TooltipComponent
                       position="right-bottom"
                       className="nowrap"
-                      handle={(longCount + aumCount / 1.23) * 0.12 + 2980}
+                      handle={(longCount + aumCount / 1.23) * 0.004}
                       renderContent={() => (
                         <TooltipCard
                           title={t`Claimable`}
@@ -817,7 +886,7 @@ export default function DashboardV2() {
                         <TooltipComponent
                           position="right-bottom"
                           className="nowrap"
-                          handle={"$" + formatAmount(leveragePrice, USD_DECIMALS, 2, true)}
+                          handle={`$${formatAmount(leveragePrice, USD_DECIMALS, 2, true)}`}
                           renderContent={() => (
                             <>
                               <TooltipCardRow
@@ -1131,7 +1200,7 @@ export default function DashboardV2() {
               <div className="App-card-title">
                 <img src={binanceIcon} width="24" height="24" />
                 <img src={velasIcon} width="24" height="24" />
-                <span class="App-card-title-content">
+                <span className="App-card-title-content">
                   {" "}
                   <Trans>GLP Index Composition</Trans>{" "}
                 </span>

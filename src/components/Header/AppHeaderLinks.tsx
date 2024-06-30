@@ -1,12 +1,12 @@
-import React from "react";
+// import React from "react";
 import { FiX } from "react-icons/fi";
 import { HeaderLink } from "./HeaderLink";
 import logoImg from "../../img/Logo XVI.svg";
 import "./Header.css";
 import { isHomeSite } from "../../lib/legacy";
-import ExternalLink from "../ExternalLink/ExternalLink";
+// import ExternalLink from "../ExternalLink/ExternalLink";
 import { Trans } from "@lingui/macro";
-import HeaderDropDown from "./HeaderDropDown";
+// import HeaderDropDown from "./HeaderDropDown";
 import { useState } from "react";
 import WithdrawPopup from "../withdraw/withdraw";
 
@@ -28,7 +28,7 @@ export function AppHeaderLinks({
   const [isWithdrawPopupOpen, setIsWithdrawPopupOpen] = useState(false);
 
   const handleWithdrawClick = () => {
-    let userId = localStorage.getItem("userId");
+    const userId = localStorage.getItem("userId");
     if (userId) {
       if (isWithdrawPopupOpen) {
         setIsWithdrawPopupOpen(false);
@@ -112,7 +112,19 @@ export function AppHeaderLinks({
           <Trans>Ecosystem</Trans>
         </HeaderLink>
       </div>
-      {!small && (
+
+      <div className="App-header-link-container">
+        <HeaderLink
+          to="/"
+          isHomeLink={true}
+          redirectPopupTimestamp={redirectPopupTimestamp}
+          showRedirectModal={showRedirectModal}
+        >
+          <Trans>About Us</Trans>
+        </HeaderLink>
+      </div>
+
+      {/* {!small && (
         <HeaderDropDown redirectPopupTimestamp={redirectPopupTimestamp} showRedirectModal={showRedirectModal} />
       )}
       {small && (
@@ -137,7 +149,7 @@ export function AppHeaderLinks({
             </ExternalLink>
           </div>
         </>
-      )}
+      )} */}
       {/* <div className="App-header-link-container">
         <HeaderLink
           to="/referrals"

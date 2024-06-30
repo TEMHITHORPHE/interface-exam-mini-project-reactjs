@@ -35,7 +35,8 @@ export default function TokenCard({ showRedirectModal }) {
   const BuyLink = ({ className, to, children, network }) => {
     if (isHome && showRedirectModal) {
       return (
-        <div className={cx("a", className)} onClick={() => showRedirectModal(to)}>
+        // biome-ignore lint/a11y/useKeyWithClickEvents: <explanation>
+<div className={cx("a", className)} onClick={() => showRedirectModal(to)}>
           {children}
         </div>
       );

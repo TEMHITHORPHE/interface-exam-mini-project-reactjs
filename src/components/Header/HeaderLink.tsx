@@ -33,20 +33,24 @@ export function HeaderLink({
   if (isHome && !(isHomeLink && !isOnHomePage)) {
     if (shouldShowRedirectModal(redirectPopupTimestamp)) {
       return (
-        <div className={cx("a", className, { active: isHomeLink })} onClick={() => showRedirectModal(to)}>
+        <div className={cx("a", className, { active: isHomeLink })} onClick={(_e) => showRedirectModal(to)}>
           {children}
         </div>
       );
-    } else {
-      const baseUrl = getAppBaseUrl();
-      return (
-        <a className={cx("a", className, { active: isHomeLink })} href={baseUrl + to}>
-          {children}
-        </a>
-      );
     }
+    // else {
+    const baseUrl = getAppBaseUrl();
+    // console.log("[BASE - URL]: ", baseUrl);
+    
+    return (
+      <a className={cx("a", className, { active: isHomeLink })} href={baseUrl + to}>
+        {children}
+      </a>
+    );
+    // }
   }
 
+  // console.log("[BASE - URL]: ");
   if (isHomeLink) {
     return (
       <a href={getHomeUrl()} className={cx(className)}>
@@ -54,6 +58,9 @@ export function HeaderLink({
       </a>
     );
   }
+
+  // console.log("======== HERE ========");
+  
 
   return (
     <NavLink activeClassName="active" className={cx(className)} exact={exact} to={to}>
