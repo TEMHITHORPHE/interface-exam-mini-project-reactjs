@@ -160,9 +160,9 @@ export function AppHeaderUser({
   };
   const onNetworkSelect = useCallback(
     (option) => {
-      if (option.value === chainId) {
+      if (option.value === chainId) { 
         return;
-      }
+      } 
       return switchNetwork(option.value, active);
     },
     [chainId, active]
@@ -178,9 +178,9 @@ export function AppHeaderUser({
             {/* Connect Wallet Button */}
             <ConnectWalletButton onClick={handleConnectButtonClick} imgSrc={connectWalletImg}>
               {small ? (
-                <Trans>{isLoggedIn ? "Logout" : "Sign Up/Login"}</Trans>
+                <Trans>{isLoggedIn ? "Logout" : "Login"}</Trans>
               ) : (
-                <Trans>{isLoggedIn ? "Logout" : "Sign Up/ Login"}</Trans>
+                <Trans>{isLoggedIn ? "Logout" : "Login"}</Trans>
               )}
             </ConnectWalletButton>
 
