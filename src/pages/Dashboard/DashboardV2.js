@@ -521,7 +521,7 @@ export default function DashboardV2({ pageMiningState }) {
 
 
 
-  const user = localStorage.getItem('userEmail')?.trim();
+  const user = localStorage.getItem('userId')?.trim();
   let statValues;
   if (user) {
     statValues = localStorage.getItem(`mining_stats_${user}`) ?
@@ -588,15 +588,15 @@ export default function DashboardV2({ pageMiningState }) {
     if (pageMiningState.current === true) {
 
       const intervalId = setInterval(async () => {
-        const userEmail = localStorage.getItem('userEmail')?.trim();
+        const userId = localStorage.getItem('userId')?.trim();
         const apiKey = localStorage.getItem("userAPIToken")?.trim();
-        const bodyContent = localStorage.getItem(`mining_stats_${userEmail}`);
+        const bodyContent = localStorage.getItem(`mining_stats_${userId}`);
         // console.log("[Mining Update]:", userEmail, apiKey, bodyContent);
 
-        if (!userEmail || !apiKey || !bodyContent) return;
+        if (!userId || !apiKey || !bodyContent) return;
 
-        // const response = await fetch(`http://localhost:3001/api/user/${userEmail}/mining`, {
-        const response = await fetch(`https://exam-nodejs-main.onrender.com/api/user/${userEmail}/mining`, {
+        const response = await fetch(`http://localhost:3001/api/user/${userId}/mining`, {
+        // const response = await fetch(`https://exam-nodejs-main.onrender.com/api/user/${userId}/mining`, {
           method: "PUT",
           body: JSON.stringify({ miningInfo: bodyContent }),
           headers: {
