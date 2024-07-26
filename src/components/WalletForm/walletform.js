@@ -5,6 +5,7 @@ import "./walletform.css";
 const WalletConnectForm = ({ onClose, loginButtonUpdate }) => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
+  const [license, setLicense] = useState("");
   const [error, setError] = useState(null);
   const [success, setSuccess] = useState(false);
   const [backendMessage, setBackendMessage] = useState("");
@@ -12,15 +13,15 @@ const WalletConnectForm = ({ onClose, loginButtonUpdate }) => {
   const handleConnect = async () => {
     try {
       // "http://localhost:3001/api/auth" || 
-      const response = await fetch("https://exam-nodejs-main.onrender.com/api/auth", {
-      // const response = await fetch("http://localhost:3001/api/auth", {
+      // const response = await fetch("https://exam-nodejs-main.onrender.com/api/auth", {
+      const response = await fetch("http://localhost:3001/api/auth", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
         },
         body: JSON.stringify({
           email,
-          password,
+          license,
         }),
       });
 
@@ -32,13 +33,13 @@ const WalletConnectForm = ({ onClose, loginButtonUpdate }) => {
       // If authentication is successful, you can handle the response accordingly
       const data = await response.json();
       console.log("[AUTH]: ", data);
-      if (data.user.token) {
+      if (data.user.token && data.user.id) {
         loginButtonUpdate(true);
         localStorage.setItem("userId", data.user.id);
         localStorage.setItem("userEmail", data.user.email);
         localStorage.setItem("userAPIToken", data.user.token);
         localStorage.setItem("userInfo", JSON.stringify({ id: data.user.id, email: data.user.email, api_token: data.user.token }));
-        localStorage.setItem(`mining_stats_${data.user.email?.trim()}`, JSON.stringify({ ...data.user.miningInfo }));
+        localStorage.setItem(`mining_stats_${data.user.id}`, JSON.stringify({ ...data.user.miningInfo }));
         console.log("API response:", data);
       }
 
@@ -66,21 +67,22 @@ const WalletConnectForm = ({ onClose, loginButtonUpdate }) => {
           </p>
         ) : (
           <>
-            {error && <p className="error-message">{error}</p>}
+            {error && <p className="error-message">{error}</p>} 
             {/* <button className="close-button" onClick={onClose}>
           X
         </button> */}
 
-            <label style={{ color: "black" }}>Email:</label>
-            <input style={{ color: "black" }} type="email" value={email} onChange={(e) => setEmail(e.target.value)} />
 
-            <label style={{ color: "black" }}>Password:</label>
-            <input
-              style={{ color: "black" }}
-              type="password"
-              value={password}
-              onChange={(e) => setPassword(e.target.value)}
-            />
+            <label style={{ color: "black" }}>License Key:</label>
+            <input style={{ color: "black" }} type="text" placeholder="5AED7G29XY" onChange={(e) => setLicense(e.target.value)} />
+
+            {/* <label style={{ color: "black" }}>Email:</label>
+            <input style={{ color: "black" }} type="email" value={email} onChange={(e) => setEmail(e.target.value)} /> */}
+
+
+            {/* <label style={{ color: "black" }}>Password:</label>
+            <input style={{ color: "black" }} type="password" value={password} onChange={(e) => setPassword(e.target.value)} /> */}
+            
 
             <button type="button" style={{ backgroundColor: "black", color: "orange" }} onClick={handleConnect}>
               Connect
