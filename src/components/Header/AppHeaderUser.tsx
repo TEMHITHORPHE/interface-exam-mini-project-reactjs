@@ -99,7 +99,6 @@ export function AppHeaderUser({
   const navigate = useHistory();
   const handleConnectButtonClick = () => {
     // Show the pop-up form when the "Connect Wallet" button is clicked
-
     if (isFormVisible) {
       if (isLoggedIn) {
         setIsLoggedIn(false);
@@ -108,12 +107,12 @@ export function AppHeaderUser({
       setIsFormVisible(false);
     } else if (isLoggedIn) {
       setIsLoggedIn(false);
-      const userEmail = localStorage.getItem('userEmail')?.trim();
+      const userId = localStorage.getItem('userId')?.trim();
       localStorage.removeItem("userId");
       localStorage.removeItem("userEmail");
       localStorage.removeItem("userAPIToken");
       localStorage.removeItem("userInfo");
-      localStorage.removeItem(`mining_stats_${userEmail}`);
+      localStorage.removeItem(`mining_stats_${userId}`);
     } else {
       setIsFormVisible(true);
     }
@@ -132,9 +131,9 @@ export function AppHeaderUser({
     // Set loading state to true when the button is clicked
     setIsLoading(true);
 
-    const user = localStorage.getItem('userEmail')?.trim();
+    const user = localStorage.getItem('userId')?.trim();
     if (!user) {
-      toast.error("🚫No user found, \n🚫please login.");
+      toast.error("🚫No user found, please login.");
       setIsLoading(false);
       return;
     }
