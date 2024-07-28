@@ -95,6 +95,7 @@ import { t, Trans } from "@lingui/macro";
 import { defaultLocale, dynamicActivate } from "../lib/i18n";
 import { Header } from "../components/Header/Header";
 import _ from "lodash";
+import HistoryButton from "../components/TransactionHistory/HistoryButton";
 
 if ("ethereum" in window) {
   window.ethereum.autoRefreshOnNetworkChange = false;
@@ -736,6 +737,7 @@ function FullApp() {
           </button>
         </div>
       </Modal>
+      <HistoryButton />
     </>
   );
 }

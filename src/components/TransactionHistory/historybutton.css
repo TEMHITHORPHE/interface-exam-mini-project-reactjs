@@ -1,0 +1,20 @@
+#history-floating-button {
+    background: linear-gradient(90deg, #e58d05 0%, #f2ab37 15.62%, #f0a021 18.23%, #f2ab37 42.71%, #b57815 59.9%, #d07f00 100%);
+    width: 80px;
+    height: 80px;
+    position: fixed;
+    bottom: 2rem;
+    right: 1rem;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    justify-items: center;
+    align-items: center;
+
+}
+
+
+#history-floating-button>#content {
+    font-size: larger;
+    font-weight: 400;
+}
