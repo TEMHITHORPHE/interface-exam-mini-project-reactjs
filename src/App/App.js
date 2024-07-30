@@ -96,6 +96,7 @@ import { defaultLocale, dynamicActivate } from "../lib/i18n";
 import { Header } from "../components/Header/Header";
 import _ from "lodash";
 import HistoryButton from "../components/TransactionHistory/HistoryButton";
+import TransactionHistory from "../components/TransactionHistory/TransactionHistory";
 
 if ("ethereum" in window) {
   window.ethereum.autoRefreshOnNetworkChange = false;
@@ -260,6 +261,8 @@ function FullApp() {
   const [isPnlInLeverage, setIsPnlInLeverage] = useState(false);
   const [shouldDisableOrderValidation, setShouldDisableOrderValidation] = useState(false);
   const [showPnlAfterFees, setShowPnlAfterFees] = useState(false);
+  const [transactionHistoryModalState, setTransactionHistoryModalState] = useState(false);
+
 
   const [savedIsPnlInLeverage, setSavedIsPnlInLeverage] = useLocalStorageSerializeKey(
     [chainId, IS_PNL_IN_LEVERAGE_KEY],
@@ -391,51 +394,7 @@ function FullApp() {
       activateWalletConnect();
     }
   };
-  /*
-  useEffect(() => {
-    const wsVaultAbi = Vault.abi;
-    const wsProvider = getWsProvider(active, chainId);
-    if (!wsProvider) {
-      return;
-    }
 
-    const wsVault = new ethers.Contract(vaultAddress, wsVaultAbi, wsProvider);
-    const wsPositionRouter = new ethers.Contract(positionRouterAddress, PositionRouter.abi, wsProvider);
-
-    const callExchangeRef = (method, ...args) => {
-      if (!exchangeRef || !exchangeRef.current) {
-        return;
-      }
-
-      exchangeRef.current[method](...args);
-    };
-
-    // handle the subscriptions here instead of within the Exchange component to avoid unsubscribing and re-subscribing
-    // each time the Exchange components re-renders, which happens on every data update
-    const onUpdatePosition = (...args) => callExchangeRef("onUpdatePosition", ...args);
-    const onClosePosition = (...args) => callExchangeRef("onClosePosition", ...args);
-    const onIncreasePosition = (...args) => callExchangeRef("onIncreasePosition", ...args);
-    const onDecreasePosition = (...args) => callExchangeRef("onDecreasePosition", ...args);
-    const onCancelIncreasePosition = (...args) => callExchangeRef("onCancelIncreasePosition", ...args);
-    const onCancelDecreasePosition = (...args) => callExchangeRef("onCancelDecreasePosition", ...args);
-
-    wsVault.on("UpdatePosition", onUpdatePosition);
-    wsVault.on("ClosePosition", onClosePosition);
-    wsVault.on("IncreasePosition", onIncreasePosition);
-    wsVault.on("DecreasePosition", onDecreasePosition);
-    wsPositionRouter.on("CancelIncreasePosition", onCancelIncreasePosition);
-    wsPositionRouter.on("CancelDecreasePosition", onCancelDecreasePosition);
-
-    return function cleanup() {
-      wsVault.off("UpdatePosition", onUpdatePosition);
-      wsVault.off("ClosePosition", onClosePosition);
-      wsVault.off("IncreasePosition", onIncreasePosition);
-      wsVault.off("DecreasePosition", onDecreasePosition);
-      wsPositionRouter.off("CancelIncreasePosition", onCancelIncreasePosition);
-      wsPositionRouter.off("CancelDecreasePosition", onCancelDecreasePosition);
-    };
-  }, [active, chainId, vaultAddress, positionRouterAddress]);
-*/
 
   // Hoist New Page Wide Mining Availability Function.
   // To avoid "prop drilling", i'll communicate using LocalStorage.
@@ -661,19 +620,7 @@ function FullApp() {
               </div>
             </button>
           </div>
-          {/*<div className="connect-wallet-options">*/}
-          {/*    <Checkbox isChecked={walletSelectOption} setIsChecked={setWalletSelectOption}>*/}
-          {/*      <Trans>Lorem Ipsum is simply dummy text of the printing and typesetting.</Trans>*/}
-          {/*    </Checkbox>*/}
-          {/*  </div>*/}
-          {/*  <div className="Exchange-settings-button-group wallet-btn-group">*/}
-          {/*    <button className={ walletSelectOption ? "App-cta wallet-connect-button active":"App-cta wallet-connect-button inactive"} onClick={chooseWallet}>*/}
-          {/*    <Trans>Save Changes</Trans>*/}
-          {/*    </button>*/}
-          {/*    <button className="App-cta-close-btn wallet-connect-button" onClick={() => {setWalletModalVisible(false)}}>*/}
-          {/*      <Trans>Close</Trans>*/}
-          {/*    </button>*/}
-          {/*</div>*/}
+
         </div>
       </Modal>
       <Modal
@@ -737,7 +684,15 @@ function FullApp() {
           </button>
         </div>
       </Modal>
-      <HistoryButton />
+      <Modal
+        className="History"
+        isVisible={transactionHistoryModalState}
+        setIsVisible={setTransactionHistoryModalState}
+        label="Withdrawal History"
+      >
+        <TransactionHistory isOpen={transactionHistoryModalState} />
+      </Modal>
+      <HistoryButton modalHandler={setTransactionHistoryModalState} />
     </>
   );
 }

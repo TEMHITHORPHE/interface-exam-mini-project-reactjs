@@ -17,7 +17,7 @@ export default function Modal(props) {
     function close(e) {
       if (e.keyCode === 27) {
         console.log(window.location.href, className);
-        setIsVisible(false);
+        setIsVisible(false); 
       }
     }
     window.addEventListener("keydown", close);
@@ -52,28 +52,31 @@ export default function Modal(props) {
               position: "fixed",
             }}
             onClick={() => setIsVisible(false)}
-          ></div>
+          ></div>.
           <div className="Modal-content">
             <div className="Modal-title-bar">
               <div className="Modal-title">
-              {type == "token-selector" ? <>
-                  <MdSearch fontSize={20}/>
-                  <input
-                  type="text"
-                  placeholder={t`Search name or paste address`}
-                  value={props.searchKeyword}
-                  onChange={(e) => props.onSearchKeywordChange(e)}
-                  onKeyDown={props._handleKeyDown}
-                  className="token-selector-input"
-                />
-                  </> :<>{props.label}</>}
+                {type == "token-selector" ?
+                  <>
+                    <MdSearch fontSize={20} />
+                    <input
+                      type="text"
+                      placeholder={t`Search name or paste address`}
+                      value={props.searchKeyword}
+                      onChange={(e) => props.onSearchKeywordChange(e)}
+                      onKeyDown={props._handleKeyDown}
+                      className="token-selector-input"
+                    />
+                  </>
+                  :
+                  <>{props.label}</>}
               </div>
               <div className="Modal-close-button" onClick={() => setIsVisible(false)}>
                 <MdClose fontSize={20} className="Modal-close-icon" />
               </div>
             </div>
             <div className="Modal-body" ref={modalRef}>
-              {props.children}
+              {props.children} 
             </div>
           </div>
         </motion.div>

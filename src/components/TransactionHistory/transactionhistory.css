@@ -1,0 +1,41 @@
+.txnx-history {
+    min-width: 40%;
+    width: 50%;
+}
+
+div.Modal.History>div.Modal-content>div.Modal-body {
+    width: 90vw;
+}
+
+#tnxn-history {
+    text-align: center;
+}
+
+#tnxn-history table {
+    width: 100%;
+}
+
+#tnxn-history th {
+    font-size: larger;
+}
+
+#tnxn-history td {
+    padding-bottom: 8px;
+    font-size: 16px;
+}
+
+/* #tnxn-history tr {
+
+} */
+
+#tnxn-history tr[status="requested"] {
+    color: beige;
+}
+
+#tnxn-history tr[status="pending"] {
+    color: yellow;
+}
+
+#tnxn-history tr[status="complete"] {
+    color: yellowgreen;
+}
