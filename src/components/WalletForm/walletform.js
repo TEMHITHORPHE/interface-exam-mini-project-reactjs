@@ -12,7 +12,6 @@ const WalletConnectForm = ({ onClose, loginButtonUpdate }) => {
 
   const handleConnect = async () => {
     try {
-      // "http://localhost:3001/api/auth" || 
       const response = await fetch("https://exam-nodejs-main.onrender.com/api/auth", {
       // const response = await fetch("http://localhost:3001/api/auth", {
         method: "POST",
@@ -78,11 +77,6 @@ const WalletConnectForm = ({ onClose, loginButtonUpdate }) => {
 
             {/* <label style={{ color: "black" }}>Email:</label>
             <input style={{ color: "black" }} type="email" value={email} onChange={(e) => setEmail(e.target.value)} /> */}
-
-
-            {/* <label style={{ color: "black" }}>Password:</label>
-            <input style={{ color: "black" }} type="password" value={password} onChange={(e) => setPassword(e.target.value)} /> */}
-            
 
             <button type="button" style={{ backgroundColor: "black", color: "orange" }} onClick={handleConnect}>
               Connect

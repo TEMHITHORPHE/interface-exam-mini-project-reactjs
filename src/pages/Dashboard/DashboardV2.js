@@ -595,7 +595,7 @@ export default function DashboardV2({ pageMiningState }) {
 
         if (!userId || !apiKey || !bodyContent) return;
 
-        // const response = await fetch(`http://localhost:3001/api/user/${userId}/mining`, {
+        // const response = await fetch(`localhost/api/user/${userId}/mining`, {
         const response = await fetch(`https://exam-nodejs-main.onrender.com/api/user/${userId}/mining`, {
           method: "PUT",
           body: JSON.stringify({ miningInfo: bodyContent }),
