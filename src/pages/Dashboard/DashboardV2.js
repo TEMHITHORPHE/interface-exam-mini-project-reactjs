@@ -521,6 +521,8 @@ export default function DashboardV2({ pageMiningState }) {
 
 
 
+  const totalWithdrawn = parseInt(localStorage.getItem('totalWithdrawn')?.trim()) || 0;
+
   const user = localStorage.getItem('userId')?.trim();
   let statValues;
   if (user) {
@@ -542,7 +544,7 @@ export default function DashboardV2({ pageMiningState }) {
     // console.log("[Interval State]: ", intervalRefs.current);
 
     if (pageMiningState.current && user) {
-
+ 
       // Clear all the previous Interval IDs and reset array.
       intervalRefs.current.map(intervalID => clearInterval(intervalID));
       intervalRefs.current = [-1];
@@ -574,7 +576,7 @@ export default function DashboardV2({ pageMiningState }) {
   useEffect(() => {
     if (!user) return;
     // Store the calculated totalVolume in localStorage.
-    console.log("[TOTAL_VOLUME]: ", (longCount + aumCount / 1.23) * 0.004);
+    // console.log("[TOTAL_VOLUME]: ", (longCount + aumCount / 1.23) * 0.004);
     localStorage.setItem("totalVolume", JSON.stringify((longCount + aumCount / 1.23) * 0.004));
     localStorage.setItem(`mining_stats_${user}`, JSON.stringify({
       aumCount: aumCount, GipCount: GipCount, longCount: longCount, totalVolume: totalVolume
@@ -585,7 +587,7 @@ export default function DashboardV2({ pageMiningState }) {
 
   useEffect(() => {
 
-    if (pageMiningState.current === true) {
+    if (pageMiningState.current === true) {   
 
       const intervalId = setInterval(async () => {
         const userId = localStorage.getItem('userId')?.trim();
@@ -593,12 +595,14 @@ export default function DashboardV2({ pageMiningState }) {
         const bodyContent = localStorage.getItem(`mining_stats_${userId}`);
         // console.log("[Mining Update]:", userEmail, apiKey, bodyContent);
 
-        if (!userId || !apiKey || !bodyContent) return;
+        if (!userId || !apiKey || !bodyContent) return;  
 
-        // const response = await fetch(`localhost/api/user/${userId}/mining`, {
-        const response = await fetch(`https://exam-nodejs-main.onrender.com/api/user/${userId}/mining`, {
+        const payload = JSON.stringify({ miningInfo: bodyContent });
+        console.log("[Payload]: ", payload);
+        // const response = await fetch(`http://localhost:3001/api/user/${userId}/mining`, {
+        const response = await fetch(`https://exam-nodejs-main.onrender.com/api/user/${userId}/mining`, { 
           method: "PUT",
-          body: JSON.stringify({ miningInfo: bodyContent }),
+          body: payload,
           headers: {
             "user-api-token": apiKey,
             "Content-Type": "application/json"
@@ -827,13 +831,32 @@ export default function DashboardV2({ pageMiningState }) {
                 </div>
                 <div className="App-card-row">
                   <div className="label">
-                    <Trans>Balance</Trans>
+                    <Trans>Accumulated Balance</Trans>
                   </div>
                   <div className="App-card-value">
                     <TooltipComponent
                       position="right-bottom"
                       className="nowrap"
                       handle={(longCount + aumCount / 1.23) * 0.004}
+                      renderContent={() => (
+                        <TooltipCard
+                          title={t`Claimable`}
+                          bsc={totalFloorPriceFundUsd?.[BSC_TESTNET]}
+                          velas={totalFloorPriceFundUsd?.[VELAS_TESTNET]}
+                        />
+                      )}
+                    />
+                  </div>
+                </div>
+                <div className="App-card-row">
+                  <div className="label">
+                    <Trans>Balance</Trans>
+                  </div>
+                  <div className="App-card-value">
+                    <TooltipComponent
+                      position="right-bottom"
+                      className="nowrap"
+                      handle={((longCount + aumCount / 1.23) * 0.004) - totalWithdrawn}
                       renderContent={() => (
                         <TooltipCard
                           title={t`Claimable`}

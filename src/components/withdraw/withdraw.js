@@ -10,6 +10,7 @@ const WithdrawPopup = ({ isOpen, onClose, onWithdraw }) => {
   const [success, setSuccess] = useState(false);
   const [selectedNetwork, changeSelectedNetwork] = useState("");
   const [networkAddress, setNetworkAddress] = useState("");
+  const totalWithdrawn = parseInt(localStorage.getItem('totalWithdrawn')?.trim()) || 0;
   const history = useHistory();
 
 
@@ -98,9 +99,10 @@ const WithdrawPopup = ({ isOpen, onClose, onWithdraw }) => {
 
         // Update new balance on succesful withdrawal.
         // We update Multiple times in hopes that we win any race condition.
-        localStorage.setItem("totalVolume", storedWithdrawAmount - withdrawAmount);
-        localStorage.setItem("totalVolume", storedWithdrawAmount - withdrawAmount);
-        localStorage.setItem("totalVolume", storedWithdrawAmount - withdrawAmount);
+        // localStorage.setItem("totalWithdrawn", totalWithdrawn + withdrawAmount);
+        localStorage.setItem("totalWithdrawn", totalWithdrawn + parseInt(withdrawAmount));
+        // localStorage.setItem("totalVolume", storedWithdrawAmount - withdrawAmount);
+        // localStorage.setItem("totalVolume", storedWithdrawAmount - withdrawAmount);
         return;
       }
       else {
@@ -189,7 +191,11 @@ const WithdrawPopup = ({ isOpen, onClose, onWithdraw }) => {
               <input style={{ color: "black", backgroundColor: "grey" }} type="text" id="withdrawAmount"
                 onChange={(e) => setNetworkAddress(e.target.value)} />
 
-              <div style={{ color: "black" }}>Available Withdrawal Amount: <span style={{ color: "darkgoldenrod" }}> ${storedWithdrawAmount.toFixed(2)} </span>  </div>
+              <div style={{ color: "black" }}>Available Withdrawal Amount:
+                <span style={{ color: "darkgoldenrod" }}>
+                  ${(storedWithdrawAmount - totalWithdrawn).toFixed(2)}
+                </span>
+              </div>
 
               <button type="button" style={{ backgroundColor: "black", color: "orange" }} onClick={handleWithdraw}>
                 Withdraw
