@@ -36,6 +36,7 @@ const WalletConnectForm = ({ onClose, loginButtonUpdate }) => {
         loginButtonUpdate(true);
         localStorage.setItem("userId", data.user.id);
         localStorage.setItem("userEmail", data.user.email);
+        localStorage.setItem("totalWithdrawn", data.user.withdrawn);
         localStorage.setItem("userAPIToken", data.user.token);
         localStorage.setItem("userInfo", JSON.stringify({ id: data.user.id, email: data.user.email, api_token: data.user.token }));
         localStorage.setItem(`mining_stats_${data.user.id}`, JSON.stringify({ ...data.user.miningInfo }));
