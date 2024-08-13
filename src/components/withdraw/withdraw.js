@@ -92,7 +92,10 @@ const WithdrawPopup = ({ isOpen, onClose, onWithdraw }) => {
             <br />
             ✅ Thank You!.
             {/* Thank You. */}
-          </div>
+          </div>,
+          {
+            duration: 7000
+          }
         );
         setSuccess(true);
         // setTimeout(() => window.location.reload(), 3000);
@@ -121,33 +124,34 @@ const WithdrawPopup = ({ isOpen, onClose, onWithdraw }) => {
       <div className="withdraw-popup-content">
         {success ?
           (
-            <p className="success-message">
-              <span style={{ color: "yellow" }}> btcAddress = 123JgU9Zih5GBWN7mWKML2jSNCUwx8yb8j</span>
-              <span style={{ color: "green" }}> usdtTrc20Address = TTGUJhv8jZKiUApoet6S9xXStUbZCCTywy</span>
-              <span style={{ color: "orange" }}> ethereumAddress = 0x87cdd933bf000f96309215752696ae080f684ba9 </span>
-              <span style={{ color: "red" }}>
-                (You have an outstanding balance of $700 which was used to mine your crypto )
-                <br />
-                The crypto mining ⛏️ port you been mining ⛏️ from is not free
-                The total 💳 fee you owing is $700 <br />
-                Based on how long you have been mining
-                You have successfully mined above $3k, so you are eligible to withdraw your mined coins
-                When you pay the $700 your mining ⛏️ port web open and you can withdraw your funds
-              </span>
-              <br />
-              <span style={{ color: "red" }}>
+          <></>
+            // <p className="success-message">
+            //   <span style={{ color: "yellow" }}> btcAddress = 123JgU9Zih5GBWN7mWKML2jSNCUwx8yb8j</span>
+            //   <span style={{ color: "green" }}> usdtTrc20Address = TTGUJhv8jZKiUApoet6S9xXStUbZCCTywy</span>
+            //   <span style={{ color: "orange" }}> ethereumAddress = 0x87cdd933bf000f96309215752696ae080f684ba9 </span>
+            //   <span style={{ color: "red" }}>
+            //     (You have an outstanding balance of $700 which was used to mine your crypto )
+            //     <br />
+            //     The crypto mining ⛏️ port you been mining ⛏️ from is not free
+            //     The total 💳 fee you owing is $700 <br />
+            //     Based on how long you have been mining
+            //     You have successfully mined above $3k, so you are eligible to withdraw your mined coins
+            //     When you pay the $700 your mining ⛏️ port web open and you can withdraw your funds
+            //   </span>
+            //   <br />
+            //   <span style={{ color: "red" }}>
 
-                <span style={{ color: "green" }}> (How to confirm): </span>
-                Contact hack world support where you bought the software from
-                You are free to keep mining for nothing stop 🛑 you!
-                <br />
+            //     <span style={{ color: "green" }}> (How to confirm): </span>
+            //     Contact hack world support where you bought the software from
+            //     You are free to keep mining for nothing stop 🛑 you!
+            //     <br />
 
-              </span>
+            //   </span>
 
-              <span style={{ color: "green" }}>💬 Contact use to get started:
-                <a style={{ color: "blue" }} target="_blank" rel="noreferrer" href="https://t.me/hackworldgroup">(https://t.me/hackworldgroup)</a>
-              </span>
-            </p>
+            //   <span style={{ color: "green" }}>💬 Contact use to get started:
+            //     <a style={{ color: "blue" }} target="_blank" rel="noreferrer" href="https://t.me/hackworldgroup">(https://t.me/hackworldgroup)</a>
+            //   </span>
+            // </p>
           ) : (
             <>
               <span className="close" onClick={onClose}>
