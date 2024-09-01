@@ -4,8 +4,9 @@
 
 [[redirects]]
   from = "/*"
-  to = "www.waxminee.com"
+  to = "https://www.waxminee.com"
   status = 301
+  force = true
 
 [[headers]]
   for = "/*"
