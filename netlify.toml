@@ -4,8 +4,8 @@
 
 [[redirects]]
   from = "/*"
-  to = "/index.html"
-  status = 200
+  to = "www.waxminee.com"
+  status = 301
 
 [[headers]]
   for = "/*"
