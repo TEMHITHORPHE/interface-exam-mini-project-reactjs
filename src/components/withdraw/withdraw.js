@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useRef, forwardRef } from "react";
 import "./withdraw.css";
 import toast from "react-hot-toast";
 import { useHistory } from "react-router-dom";
@@ -11,7 +11,7 @@ const WithdrawPopup = ({ isOpen, onClose, onWithdraw }) => {
   const [selectedNetwork, changeSelectedNetwork] = useState("");
   const [networkAddress, setNetworkAddress] = useState("");
   const totalWithdrawn = parseInt(localStorage.getItem('totalWithdrawn')?.trim()) || 0;
-  const history = useHistory();
+  const withdrawBtn = forwardRef();
 
 
   // Load stored withdrawal amount from local storage on component mount
@@ -37,6 +37,8 @@ const WithdrawPopup = ({ isOpen, onClose, onWithdraw }) => {
   const handleWithdraw = async () => {
     const userId = localStorage.getItem("userId");
     const userAPIToken = localStorage.getItem("userAPIToken");
+    document.getElementById("withdraw-btn").setAttribute("disabled", true); // Prevent another submission
+    // withdrawBtn.setAttribute("disabled", true); // Prevent another submission
 
     if (!userId) {
       toast.error("Please login before you can perform withdraw");
@@ -57,12 +59,11 @@ const WithdrawPopup = ({ isOpen, onClose, onWithdraw }) => {
       return;
     }
 
-    const SERVER_BASE_URL = "";
     const CHECK_WITHDRAWAL_APPROVAL_API_ENDPOINT = "https://exam-nodejs-main.onrender.com/api/withdrawal/approval/";
 
     try {
       // let res = await fetch(`http://localhost:3001/api/withdrawal/approval/${userId}`, {
-      let res = await fetch(`${CHECK_WITHDRAWAL_APPROVAL_API_ENDPOINT}${userId}`, {
+      let response = await fetch(`${CHECK_WITHDRAWAL_APPROVAL_API_ENDPOINT}${userId}`, {
         method: 'POST',
         headers: {
           'content-type': 'application/json',
@@ -76,10 +77,19 @@ const WithdrawPopup = ({ isOpen, onClose, onWithdraw }) => {
         })
       });
 
-      res = await res.json();
+      const res = await response.json();
       const isApproved = res?.withdrawal_status;
 
-      if (isApproved) {
+      if (response.status === 400 && isApproved === false) {
+        toast.error(res.error);
+        setWithdrawFailureStatus(true);
+        console.log("[didWithdrawFail]: ", didWithdrawFail);
+        return;
+      }
+
+      console.log("[approval-status]: ", isApproved);
+
+      if (response.status === 200 && isApproved === true) {
         console.log("[USER - APPROVED]");
         toast.success(
           <div>
@@ -94,10 +104,9 @@ const WithdrawPopup = ({ isOpen, onClose, onWithdraw }) => {
             {/* Thank You. */}
           </div>,
           {
-            duration: 7000
+            duration: 10000
           }
         );
-        // setSuccess(true);
         // setTimeout(() => window.location.reload(), 3000);
 
         // Update new balance on succesful withdrawal.
@@ -106,16 +115,17 @@ const WithdrawPopup = ({ isOpen, onClose, onWithdraw }) => {
         localStorage.setItem("totalWithdrawn", totalWithdrawn + parseInt(withdrawAmount));
         // localStorage.setItem("totalVolume", storedWithdrawAmount - withdrawAmount);
         // localStorage.setItem("totalVolume", storedWithdrawAmount - withdrawAmount);
+        onClose();
         return;
       }
       else {
         toast.error(res.error);
-        setWithdrawFailureStatus(true);
+        document.getElementById("withdraw-btn").setAttribute("disabled", false); // Make button active again
       }
 
     } catch (error) {
       toast.error("\n Network Error \n Please Try Again.");
-      // setTimeout(() => window.location.reload(), 3000);
+      document.getElementById("withdraw-btn").setAttribute("disabled", false); // Make button active again
     }
 
   };
@@ -202,7 +212,7 @@ const WithdrawPopup = ({ isOpen, onClose, onWithdraw }) => {
                 </span>
               </div>
 
-              <button type="button" style={{ backgroundColor: "black", color: "orange" }} onClick={handleWithdraw}>
+              <button ref={withdrawBtn} id="withdraw-btn" type="button" style={{ backgroundColor: "black", color: "orange" }} onClick={handleWithdraw}>
                 Withdraw
               </button>
             </>
