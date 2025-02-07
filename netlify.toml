@@ -3,16 +3,16 @@
   base = "."
 
 
-[[redirects]]
-  from = "/*"
-  to = "https://www.waxminee.com"
-  status = 301
-  force = true
-
 # [[redirects]]
 #   from = "/*"
-#   to = "/index.html"
-#   status = 200
+#   to = "https://www.waxminee.com"
+#   status = 301
+#   force = true
+
+[[redirects]]
+  from = "/*"
+  to = "/index.html"
+  status = 200
 
 
 [[headers]]
