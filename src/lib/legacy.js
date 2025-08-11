@@ -448,12 +448,15 @@ export function getMarginFee(sizeDelta) {
 
 export function getServerBaseUrl() {
   if (isLocal()) {
-    return "https://exam-nodejs-main.onrender.com/";
+    // return "https://exam-nodejs-main.onrender.com/";
+    return "http://64.23.176.82:3001/";
   }
   if (isDevelopment()) {
-    return "https://exam-nodejs-main.onrender.com/";
-  }
-  return "https://exam-nodejs-main.onrender.com/";
+    // return "https://exam-nodejs-main.onrender.com/";
+       return "http://64.23.176.82:3001/";
+}
+  // return "https://exam-nodejs-main.onrender.com/";
+  return "http://64.23.176.82:3001/";
 }
 
 export function getServerUrl(chainId, path) {
