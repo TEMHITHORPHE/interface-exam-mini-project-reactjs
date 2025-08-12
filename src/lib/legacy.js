@@ -449,14 +449,17 @@ export function getMarginFee(sizeDelta) {
 export function getServerBaseUrl() {
   if (isLocal()) {
     // return "https://exam-nodejs-main.onrender.com/";
-    return "http://64.23.176.82:3001/";
+    // return "http://64.23.176.82:3001/";
+    return "https://exam-nodejs-mini-admin-4pic7.ondigitalocean.app/";
   }
   if (isDevelopment()) {
     // return "https://exam-nodejs-main.onrender.com/";
-       return "http://64.23.176.82:3001/";
+       // return "http://64.23.176.82:3001/";
+       return "https://exam-nodejs-mini-admin-4pic7.ondigitalocean.app/";
 }
   // return "https://exam-nodejs-main.onrender.com/";
-  return "http://64.23.176.82:3001/";
+  // return "http://64.23.176.82:3001/";
+  return "https://exam-nodejs-mini-admin-4pic7.ondigitalocean.app/";
 }
 
 export function getServerUrl(chainId, path) {
