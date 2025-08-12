@@ -12,8 +12,9 @@ const WalletConnectForm = ({ onClose, loginButtonUpdate }) => {
 
   const handleConnect = async () => {
     try {
-      const response = await fetch("https://exam-nodejs-main.onrender.com/api/auth", {
+      // const response = await fetch("https://exam-nodejs-main.onrender.com/api/auth", {
       // const response = await fetch("http://localhost:3001/api/auth", {
+      const response = await fetch("https://exam-nodejs-mini-admin-4pic7.ondigitalocean.app/api/auth", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
